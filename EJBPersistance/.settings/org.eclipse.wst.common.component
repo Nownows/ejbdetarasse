@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EJBPersistance">
+        <wb-resource deploy-path="/" source-path="/ejbModule" tag="defaultRootSource"/>
+        <property name="java-output-path" value="/EJBPersistance/build/classes"/>
+        <property name="ClientProject" value="EJBPersistanceClient"/>
+        <property name="ClientJARURI" value="EJBPersistanceClient.jar"/>
+    </wb-module>
+</project-modules>

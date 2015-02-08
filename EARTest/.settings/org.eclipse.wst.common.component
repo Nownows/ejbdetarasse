@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EARTest">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="EJBTest.jar" deploy-path="/" handle="module:/resource/EJBTest/EJBTest">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EJBTestFTP.jar" deploy-path="/" handle="module:/resource/EJBTestFTP/EJBTestFTP">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EJBTestHDD.jar" deploy-path="/" handle="module:/resource/EJBTestHDD/EJBTestHDD">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="JPA.jar" deploy-path="/lib" handle="module:/resource/JPA/JPA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EJBPersistance.jar" deploy-path="/" handle="module:/resource/EJBPersistance/EJBPersistance">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EJBPersistanceClient.jar" deploy-path="/" handle="module:/resource/EJBPersistanceClient/EJBPersistanceClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Web.war" deploy-path="/" handle="module:/resource/Web/Web">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
