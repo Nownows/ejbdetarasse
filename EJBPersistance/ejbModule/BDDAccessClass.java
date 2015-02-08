@@ -143,4 +143,24 @@ public class BDDAccessClass implements BDDMethods{
 		return (Lecteur) query.getResultList().get(0);
 	}
 
+	@Override
+	public void updateArticle(Article a) {
+		Article article = em.find(Article.class, a.getIdArticle());
+		transac.begin();
+		article.setCorps(a.getCorps());
+		article.setTitre(a.getTitre());
+		article.setPrix(a.getPrix());
+		article.setJournaliste(a.getJournaliste());
+		article.setValidateur(a.getValidateur());
+		transac.commit();		
+	}
+
+	@Override
+	public Redacteur getRedacteurById(Integer id) {
+		transac.begin();
+		Redacteur r = em.find(Redacteur.class, id);
+		transac.commit();
+		return r;
+	}
+
 }

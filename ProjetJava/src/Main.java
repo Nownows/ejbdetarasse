@@ -8,6 +8,7 @@ import model.Categorie;
 import model.Journaliste;
 import model.Lecteur;
 import model.Note;
+import model.Redacteur;
 import model.ResponsableFacturation;
 
 public class Main {
@@ -22,17 +23,6 @@ public class Main {
 			ctx = new InitialContext(props);
 			BDDMethods bean = (BDDMethods) ctx
 					.lookup("java:global/EARTest/EJBPersistance/BDDAccessClass!BDDMethods");
-			
-		/*	Lecteur l = new Lecteur();
-			l.setEmail("toto@toto.fr");
-			l.setNom("nom");
-			l.setPrenom("prenom");
-			l.setPassword("pasw");
-			l.setPays("fr");
-			l.setStatus(0);
-			bean.insertLecteur(l);*/
-			
-			System.out.println(bean.authentificationLecteur("toto@toto.fr", "pasw"));
 			
 			
 

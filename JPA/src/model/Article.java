@@ -37,6 +37,12 @@ public class Article implements Serializable{
 	@JoinColumn(name="id_validator")
 	private Redacteur validateur;
 	
+	public Redacteur getValidateur() {
+		return validateur;
+	}
+	public void setValidateur(Redacteur validateur) {
+		this.validateur = validateur;
+	}
 	public String getCorps() {
 		return corps;
 	}

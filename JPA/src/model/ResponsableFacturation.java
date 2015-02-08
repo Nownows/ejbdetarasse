@@ -21,8 +21,10 @@ public class ResponsableFacturation implements Serializable {
 	private String nom;
 	@Column(name="prenom")
 	private String prenom;
-	@Column(name="adresse")
-	private String adresse;
+	@Column(name="mail")
+	private String mail;
+	@Column(name="password")
+	private String password;
 	
 	public ResponsableFacturation(){
 		
@@ -45,12 +47,18 @@ public class ResponsableFacturation implements Serializable {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getAdresse() {
-		return adresse;
+	public String getMail() {
+		return mail;
 	}
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
-	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
 }

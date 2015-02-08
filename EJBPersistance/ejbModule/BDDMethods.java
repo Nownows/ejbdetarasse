@@ -19,6 +19,7 @@ public interface BDDMethods {
 	public void insertJournalist(Journaliste j);
 	public void insertNote(Note n);
 	public void insertCategorie(Categorie c);
+	public Redacteur getRedacteurById(Integer id);
 	
 	public Article getArticleById(Integer id);
 	public List<Article> getArticlesLessThan(Float price);
@@ -30,4 +31,6 @@ public interface BDDMethods {
 	public void insertResponsableFacturation(ResponsableFacturation r);
 	
 	public Lecteur authentificationLecteur(String email, String mdp);
+	
+	public void updateArticle(Article a);
 }
