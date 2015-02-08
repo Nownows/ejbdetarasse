@@ -20,9 +20,6 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="EJBPersistanceClient.jar" deploy-path="/" handle="module:/resource/EJBPersistanceClient/EJBPersistanceClient">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="Web.war" deploy-path="/" handle="module:/resource/Web/Web">
             <dependent-object/>
             <dependency-type>uses</dependency-type>

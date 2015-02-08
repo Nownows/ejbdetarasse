@@ -8,7 +8,6 @@
 		<project>EJBTestHDD</project>
 		<project>JPA</project>
 		<project>EJBPersistance</project>
-		<project>EJBPersistanceClient</project>
 		<project>Web</project>
 	</projects>
 	<buildSpec>
