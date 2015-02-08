@@ -19,16 +19,19 @@ public interface BDDMethods {
 	public void insertJournalist(Journaliste j);
 	public void insertNote(Note n);
 	public void insertCategorie(Categorie c);
-	public Redacteur getRedacteurById(Integer id);
+	public void insertResponsableFacturation(ResponsableFacturation r);
 	
-	public Article getArticleById(Integer id);
-	public List<Article> getArticlesLessThan(Float price);
+	public Redacteur getRedacteurById(Integer id);
 	public Journaliste getJournalisteById(Integer id);
-	public List<Article> getArticlesByJournaliste(Journaliste j);
+	public Article getArticleById(Integer id);
 	public Categorie getCategorieById(Integer id);
+	
+	public List<Article> getArticlesLessThan(Float price);
+	public List<Categorie> getAllCategories();
+	public List<Article> getArticlesByJournaliste(Journaliste j);
 	public void addCategorieArticle(Integer idA, Integer idC);
 	public void addArticleCategorie(Integer idC, Integer idA);
-	public void insertResponsableFacturation(ResponsableFacturation r);
+	
 	
 	public Lecteur authentificationLecteur(String email, String mdp);
 	
