@@ -1,3 +1,4 @@
+package articles;
 import java.io.Serializable;
 import java.util.List;
 

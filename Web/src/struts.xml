@@ -5,9 +5,10 @@
 <struts>
 	<constant name="struts.custom.i18n.resources" value="controle.package" />
 	<package name="default" namespace="/" extends="struts-default">
-		<default-action-ref name="Identification" />
-		<action name="Identification">
-			<result>/index.jsp</result>
+		<default-action-ref name="Identification"/>
+		<action name="Identification" class="controle.ejb.ArticleManager">
+			<result name="input">/index.jsp</result>
+			<result name="success">/page2.jsp</result>
 		</action>
 
 		<action name="ValiderIdentification" class="controle.ValiderIdentification">

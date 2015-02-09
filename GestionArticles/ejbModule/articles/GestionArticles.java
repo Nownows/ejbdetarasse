@@ -1,3 +1,4 @@
+package articles;
 import java.util.List;
 import java.util.Properties;
 
@@ -7,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import persist.BDDMethods;
 import model.Article;
 
 @Stateless

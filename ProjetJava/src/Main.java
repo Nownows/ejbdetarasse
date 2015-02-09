@@ -3,6 +3,7 @@ import java.util.Properties;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import articles.GestArticleInterface;
 import model.Article;
 import model.Categorie;
 import model.Journaliste;

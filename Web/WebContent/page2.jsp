@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%= session.getAttribute("lu") %>
 </body>
 </html>

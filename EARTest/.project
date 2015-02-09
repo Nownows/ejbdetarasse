@@ -3,7 +3,6 @@
 	<name>EARTest</name>
 	<comment></comment>
 	<projects>
-		<project>EJBTestHDD</project>
 		<project>JPA</project>
 		<project>EJBPersistance</project>
 		<project>Web</project>
