@@ -20,11 +20,11 @@ public class GestionArticles implements GestArticleInterface {
 		try {
 			Properties props = new Properties();
 			props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
-			props.setProperty("org.omg.CORBA.ORBInitialPort", "8218");
+			props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
 			InitialContext ctx;
 			ctx = new InitialContext(props);
 			return (BDDMethods) ctx
-					.lookup("java:global/EARTest/EJBPersistance/BDDAccessClass!BDDMethods");
+					.lookup("java:global/EARTest/EJBPersistance/BDDAccessClass!persist.BDDMethods");
 		} catch (NamingException e) {
 			return null;
 		}
