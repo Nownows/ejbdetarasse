@@ -25,7 +25,7 @@ public class Main {
 		try {
 			ctx = new InitialContext(props);
 			GestArticleInterface bean = (GestArticleInterface) ctx
-					.lookup("java:global/EARTest/GestionArticles/GestionArticles!articles.GestArticleInterface");
+					.lookup("java:global/EARTest/Gestion/GestionArticles!articles.GestArticleInterface");
 			System.out.println("test");
 			System.out.println(bean.getArticles());
 			System.out.println("test");

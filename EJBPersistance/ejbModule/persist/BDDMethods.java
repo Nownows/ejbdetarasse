@@ -28,6 +28,7 @@ public interface BDDMethods {
 	public Categorie getCategorieById(Integer id);
 	
 	public List<Article> getAllArticles();
+	public List<Journaliste> getAllJournalistes();
 	public List<Article> getArticlesLessThan(Float price);
 	public List<Categorie> getAllCategories();
 	public List<Article> getArticlesByJournaliste(Journaliste j);

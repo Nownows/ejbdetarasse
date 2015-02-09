@@ -1,19 +1,17 @@
-package articles;
-import java.util.List;
+package lecteur;
+
 import java.util.Properties;
 
-import javax.ejb.LocalBean;
-import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import persist.BDDMethods;
-import model.Article;
+import model.Lecteur;
 
 @Stateless
-public class GestionArticles implements GestArticleInterface {
-	
+public class GestionLecteurs implements GestLecteurInterface {
+
 	private BDDMethods bean;
 
 	private BDDMethods initEJB() {
@@ -29,23 +27,23 @@ public class GestionArticles implements GestArticleInterface {
 			return null;
 		}
 	}
-	
-	private void initBean(){
-		if (this.bean == null){
-			this.bean = initEJB();	
+
+	private void initBean() {
+		if (this.bean == null) {
+			this.bean = initEJB();
 		}
 	}
 
 	@Override
-	public List<Article> getArticles() {
+	public void insertLecteur(Lecteur l) {
 		initBean();
-		return bean.getAllArticles();
+		bean.insertLecteur(l);
 	}
 
 	@Override
-	public Article getArticleById(Integer id) {
+	public Lecteur authentification(String mail, String pass) {
 		initBean();
-		return bean.getArticleById(id);
+		return bean.authentificationLecteur(mail, pass);
 	}
 
 }

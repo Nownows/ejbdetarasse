@@ -3,8 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/EJBPersistance"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/GestionArticles"/>
-	<classpathentry kind="lib" path="D:/glassfish4/glassfish/lib/appserv-rt.jar"/>
-	<classpathentry kind="lib" path="D:/glassfish4/glassfish/lib/gf-client.jar"/>
+	<classpathentry kind="lib" path="D:/glassfish-4.1/glassfish4/glassfish/lib/appserv-rt.jar"/>
+	<classpathentry kind="lib" path="D:/glassfish-4.1/glassfish4/glassfish/lib/gf-client.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Gestion"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -166,14 +166,19 @@ public class BDDAccessClass implements BDDMethods{
 
 	@Override
 	public List<Categorie> getAllCategories() {
-		Query query = em.createQuery("select c from Categorie c ");
+		Query query = em.createQuery("select c from Categorie c");
 		return query.getResultList();
 	}
 
 	@Override
 	public List<Article> getAllArticles() {
-		System.out.println("ici");
-		Query query = em.createQuery("select a from Article a ");
+		Query query = em.createQuery("select a from Article a");
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Journaliste> getAllJournalistes() {
+		Query query = em.createQuery("select j from Journaliste j");
 		return query.getResultList();
 	}
 

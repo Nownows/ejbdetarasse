@@ -11,11 +11,11 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="GestionArticles.jar" deploy-path="/" handle="module:/resource/GestionArticles/GestionArticles">
-            <dependent-object/>
+        <dependent-module archiveName="mysql-connector-java-5.1.23-bin.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/Users/Aethia/Desktop/ejbdetarasse/libs/mysql-connector-java-5.1.23-bin.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="mysql-connector-java-5.1.23-bin.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/Users/Aethia/Desktop/ejbdetarasse/libs/mysql-connector-java-5.1.23-bin.jar">
+        <dependent-module archiveName="Gestion.jar" deploy-path="/" handle="module:/resource/Gestion/Gestion">
+            <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

@@ -6,7 +6,7 @@
 		<project>JPA</project>
 		<project>EJBPersistance</project>
 		<project>Web</project>
-		<project>GestionArticles</project>
+		<project>Gestion</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

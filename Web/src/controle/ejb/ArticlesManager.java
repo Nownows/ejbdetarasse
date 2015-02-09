@@ -30,7 +30,7 @@ public class ArticlesManager extends ActionSupport implements SessionAware {
 			try {
 				ctx = new InitialContext(props);
 				bean = (GestArticleInterface) ctx
-						.lookup("java:global/EARTest/GestionArticles/GestionArticles!articles.GestArticleInterface");
+						.lookup("java:global/EARTest/Gestion/GestionArticles!articles.GestArticleInterface");
 				System.out.println(bean.getArticles());
 
 			} catch (NamingException e) {
