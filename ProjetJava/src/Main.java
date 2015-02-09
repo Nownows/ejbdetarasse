@@ -21,9 +21,9 @@ public class Main {
 		InitialContext ctx;
 		try {
 			ctx = new InitialContext(props);
-			BDDMethods bean = (BDDMethods) ctx
-					.lookup("java:global/EARTest/EJBPersistance/BDDAccessClass!BDDMethods");
-			
+			GestArticleInterface bean = (GestArticleInterface) ctx
+					.lookup("java:global/EARTest/GestionArticles/GestionArticles!GestArticleInterface");
+			System.out.println(bean.getArticles());
 			
 
 		} catch (NamingException e) {

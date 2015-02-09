@@ -3,12 +3,11 @@
 	<name>EARTest</name>
 	<comment></comment>
 	<projects>
-		<project>EJBTest</project>
-		<project>EJBTestFTP</project>
 		<project>EJBTestHDD</project>
 		<project>JPA</project>
 		<project>EJBPersistance</project>
 		<project>Web</project>
+		<project>GestionArticles</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

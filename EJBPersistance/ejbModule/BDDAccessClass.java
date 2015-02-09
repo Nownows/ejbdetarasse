@@ -169,4 +169,10 @@ public class BDDAccessClass implements BDDMethods{
 		return query.getResultList();
 	}
 
+	@Override
+	public List<Article> getAllArticles() {
+		Query query = em.createQuery("select a from Article a ");
+		return query.getResultList();
+	}
+
 }
