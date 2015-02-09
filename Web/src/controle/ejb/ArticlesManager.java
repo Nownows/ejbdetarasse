@@ -25,12 +25,12 @@ public class ArticlesManager extends ActionSupport implements SessionAware {
 		if (bean == null) {
 			Properties props = new Properties();
 			props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
-			props.setProperty("org.omg.CORBA.ORBInitialPort", "8080");
+			props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
 			InitialContext ctx;
 			try {
 				ctx = new InitialContext(props);
 				bean = (GestArticleInterface) ctx
-						.lookup("java:global/EARTest/GestionArticles/GestionArticles!GestArticleInterface");
+						.lookup("java:global/EARTest/GestionArticles/GestionArticles!articles.GestArticleInterface");
 				System.out.println(bean.getArticles());
 
 			} catch (NamingException e) {
