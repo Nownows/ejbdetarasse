@@ -7,10 +7,7 @@
 </head>
 <body>
 <div id="enveloppe">
-    <P> 
-     <h4> <s:text name="accueil.label"/> </h4>
-          <s:text name="accueil.identifiant"/> : <s:property value="identifiant"/> <br/>
-          <s:text name="accueil.motdepasse"/> : <s:property value="motdepasse"/><br/>     
+    
 </div>
 </body>
 </html>

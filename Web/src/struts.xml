@@ -14,7 +14,7 @@
 
 		<action name="ValiderIdentification" class="controle.ValiderIdentification">
 			<result name="input">/index.jsp</result>
-			<result name="success">/accueil.jsp</result>
+			<result name="success">/index.jsp</result>
 		</action>
 
 		<action name="gotopage2">

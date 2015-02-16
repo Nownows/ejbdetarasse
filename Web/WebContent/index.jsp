@@ -9,17 +9,23 @@
 <body>
 	<table style="width: 100%">
 		<tr>
-			<td width="15%;"><s:form method="post"
-					action="ValiderIdentification">
-					<s:textfield name="identifiant" id="identifiant"
-						label="Identifiant" labelposition="top" cssClass="input" />
+			<td width="15%;">
+			<% if (session.getAttribute("lecteur") == "" || session.getAttribute("lecteur") == null){ %>
+			 <s:form method="post" action="ValiderIdentification">
+					<s:textfield name="identifiant" id="identifiant" label="Identifiant" labelposition="top" cssClass="input" />
 						<s:property value="errIidentifiant"/>
-					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
-						labelposition="top" cssClass="input" />
+					<s:password name="motdepasse" id="motdepasse" label="Mot de passe" labelposition="top" cssClass="input" />
 						<s:property value="errMotdepasse"/>
 					<s:submit value="Identification" />
-				</s:form>
-				<s:a href="gotopage2">administration </s:a>
+			</s:form>
+			<s:a href="gotopage2">administration </s:a>	
+			<% } 
+			else { %>
+    			Bonjour <%= session.getAttribute("lecteur") %>
+    		<%} %>
+			
+
+			
 				</td>
 			<td width="85%;">
 				<table border="1" width="100%">	

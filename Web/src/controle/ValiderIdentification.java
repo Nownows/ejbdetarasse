@@ -66,6 +66,7 @@ public class ValiderIdentification extends ActionSupport implements SessionAware
 				return INPUT;
 			}
 			else {
+				session.put("lecteur", ret);
 				return SUCCESS;
 			}
 		} catch (Exception e) {
