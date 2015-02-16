@@ -137,10 +137,13 @@ public class BDDAccessClass implements BDDMethods{
 
 	@Override
 	public Lecteur authentificationLecteur(String email, String mdp) {
+		transac.begin();
 		Query query = em.createQuery("select l from Lecteur l where l.email = \""+email+"\" AND l.password = \""+mdp+"\"");
 		if (query.getResultList().size() == 0 ){
+			transac.commit();
 			return null;
 		}
+		transac.commit();
 		return (Lecteur) query.getResultList().get(0);
 	}
 

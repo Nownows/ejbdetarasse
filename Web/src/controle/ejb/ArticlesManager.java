@@ -7,6 +7,7 @@ import java.util.Properties;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import lecteur.GestLecteurInterface;
 import model.Article;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -14,14 +15,13 @@ import org.apache.struts2.interceptor.SessionAware;
 import articles.GestArticleInterface;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.net.httpserver.Authenticator.Failure;
 
 public class ArticlesManager extends ActionSupport implements SessionAware {
 
 	Map<String, Object> session;
 	private static GestArticleInterface bean = null;
 
-	private static GestArticleInterface init() {
+	private static void init() {
 		if (bean == null) {
 			Properties props = new Properties();
 			props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
@@ -31,25 +31,36 @@ public class ArticlesManager extends ActionSupport implements SessionAware {
 				ctx = new InitialContext(props);
 				bean = (GestArticleInterface) ctx
 						.lookup("java:global/EARTest/Gestion/GestionArticles!articles.GestArticleInterface");
-				System.out.println(bean.getArticles());
 
 			} catch (NamingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} 
-		
-		return bean;
+		}
 	}
 
 	@Override
 	public String execute() throws Exception {
-		// TODO Auto-generated method stub
-		if(bean==null){
-			init();
-		}
+		init();
 		List<Article> articles = bean.getArticles();
 		session.put("articles", articles);
+		
+		Properties props = new Properties();
+		props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
+		props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
+		InitialContext ctx;
+		try {
+			ctx = new InitialContext(props);
+			GestLecteurInterface bean2 = (GestLecteurInterface) ctx
+					.lookup("java:global/EARTest/Gestion/GestionLecteurs!lecteur.GestLecteurInterface");
+			System.out.println("ok");
+			bean2.authentification("toto", "moi");
+
+		} catch (NamingException e) {
+			System.out.println("erreur");
+			e.printStackTrace();
+		}
+		
 		return SUCCESS;
 
 	}

@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -12,27 +13,33 @@
 					action="ValiderIdentification">
 					<s:textfield name="identifiant" id="identifiant"
 						label="Identifiant" labelposition="top" cssClass="input" />
+						<s:property value="errIidentifiant"/>
 					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
 						labelposition="top" cssClass="input" />
+						<s:property value="errMotdepasse"/>
 					<s:submit value="Identification" />
 				</s:form>
-			</td>
+				<s:a href="gotopage2">administration </s:a>
+				</td>
 			<td width="85%;">
-				<table border="1" width="100%">
-					<tr>
-						<td>Article 1</td>
-						<td>actions</td>
-					</tr>
-					<tr>
-						<td>Article 2</td>
-						<td>actions</td>
-					</tr>
-					<tr>
-						<td>Article 3</td>
-						<td>actions</td>
-					</tr>
-				</table>
-				<s:a href="gotopage2">ouvrir la page </s:a>
+				<table border="1" width="100%">	
+						<c:forEach var="entry" items="<%=session.getAttribute("articles")%>">
+						<tr>
+							<td>
+							${entry.getTitre()}
+							</td>
+							<td>
+								acheter cet article
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							${entry.getCorps()}
+							</td>
+						</tr>
+						</c:forEach>
+					
+				</table> 
 			</td>
 		</tr>
 	</table>
