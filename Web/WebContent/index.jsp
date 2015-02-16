@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="model.Lecteur;"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -18,13 +19,14 @@
 						<s:property value="errMotdepasse"/>
 					<s:submit value="Identification" />
 			</s:form>
-			<s:a href="gotopage2">administration </s:a>	
+				
 			<% } 
-			else { %>
-    			Bonjour <%= session.getAttribute("lecteur") %>
+			else { 
+				Lecteur l = (Lecteur)session.getAttribute("lecteur");%>
+    			Bonjour <%= l.getNom()+" "+l.getPrenom() %>
     		<%} %>
 			
-
+			<s:a href="gotopage2">administration </s:a>
 			
 				</td>
 			<td width="85%;">

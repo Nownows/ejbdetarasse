@@ -6,10 +6,7 @@ package controle;
 
 import java.util.Map;
 import java.util.Properties;
-
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
 import lecteur.GestLecteurInterface;
 import model.Lecteur;
 

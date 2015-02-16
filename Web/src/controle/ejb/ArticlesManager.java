@@ -44,23 +44,6 @@ public class ArticlesManager extends ActionSupport implements SessionAware {
 		init();
 		List<Article> articles = bean.getArticles();
 		session.put("articles", articles);
-		
-		Properties props = new Properties();
-		props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
-		props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
-		InitialContext ctx;
-		try {
-			ctx = new InitialContext(props);
-			GestLecteurInterface bean2 = (GestLecteurInterface) ctx
-					.lookup("java:global/EARTest/Gestion/GestionLecteurs!lecteur.GestLecteurInterface");
-			System.out.println("ok");
-			bean2.authentification("toto", "moi");
-
-		} catch (NamingException e) {
-			System.out.println("erreur");
-			e.printStackTrace();
-		}
-		
 		return SUCCESS;
 
 	}

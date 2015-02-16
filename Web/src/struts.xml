@@ -16,6 +16,21 @@
 			<result name="input">/index.jsp</result>
 			<result name="success">/index.jsp</result>
 		</action>
+		
+		<action name="ValiderIdentificationJournaliste" class="controle.ValiderIdentificationJournaliste">
+			<result name="input">/admin.jsp</result>
+			<result name="success">/homeJournaliste.jsp</result>
+		</action>
+		
+		<action name="ValiderIdentificationRedacteur" class="controle.ValiderIdentificationRedacteur">
+			<result name="input">/admin.jsp</result>
+			<result name="success">/homeRedacteur.jsp</result>
+		</action>
+		
+		<action name="ValiderIdentificationResponsable" class="controle.ValiderIdentificationResponsable">
+			<result name="input">/admin.jsp</result>
+			<result name="success">/homeResponsable.jsp</result>
+		</action>
 
 		<action name="gotopage2">
 			<result type="redirect">/admin.jsp</result>

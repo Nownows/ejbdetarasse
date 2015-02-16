@@ -8,12 +8,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form method="post" action="ValiderIdentification">
+	<table width="100%">
+		<tr>
+			<td ><s:form method="post" action="ValiderIdentificationJournaliste">
+	Connexion des journalistes
 		<s:textfield name="identifiant" id="identifiant" label="Identifiant"
-			labelposition="top" cssClass="input" />
-		<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
-			labelposition="top" cssClass="input" />
-		<s:submit value="Identification" />
-	</s:form>
+						labelposition="top" cssClass="input" />
+					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
+						labelposition="top" cssClass="input" />
+					<s:submit value="Identification" />
+				</s:form></td>
+			<td><s:form method="post" action="ValiderIdentificationRedacteur">
+	Connexion des rédacteurs
+		<s:textfield name="identifiant" id="identifiant" label="Identifiant"
+						labelposition="top" cssClass="input" />
+					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
+						labelposition="top" cssClass="input" />
+					<s:submit value="Identification" />
+				</s:form></td>
+			<td><s:form method="post" action="ValiderIdentificationResponsable">
+	Connexion des responsables de facturation
+		<s:textfield name="identifiant" id="identifiant" label="Identifiant"
+						labelposition="top" cssClass="input" />
+					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
+						labelposition="top" cssClass="input" />
+					<s:submit value="Identification" />
+				</s:form></td>
+		</tr>
+	</table>
+
 </body>
 </html>
