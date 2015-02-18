@@ -25,8 +25,12 @@
 				Lecteur l = (Lecteur)session.getAttribute("lecteur");%>
     			Bonjour <%= l.getNom()+" "+l.getPrenom() %>
     		<%} %>
+			<ul>
+			<li>
+				<s:a href="gotopage2">administration </s:a>
+			</li>
+			</ul>
 			
-			<s:a href="gotopage2">administration </s:a>
 			
 				</td>
 			<td width="85%;">
