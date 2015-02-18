@@ -35,5 +35,18 @@
 		<action name="gotopage2">
 			<result type="redirect">/admin.jsp</result>
 		</action>
+		
+		<action name="gohomejournaliste">
+			<result type="redirect">/homeJournaliste.jsp</result>
+		</action>
+		
+		<action name="AjouterArticle" class="controle.journaliste.AjoutArticle">
+			<result name="input">/journaliste/addArticle.jsp</result>
+			<result name="success">/homeJournaliste.jsp</result>
+		</action>
+		
+		<action name="gonouvelarticle">
+			<result type="redirect">/journaliste/addArticle.jsp</result>
+		</action>
 	</package>
 </struts>

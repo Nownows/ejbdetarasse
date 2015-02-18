@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Plateforme de gestion des articles</title>
 </head>
 <body>
 	<table style="width: 100%">

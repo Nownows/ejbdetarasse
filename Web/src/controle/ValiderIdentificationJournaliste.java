@@ -9,7 +9,9 @@ import java.util.Properties;
 
 import javax.naming.InitialContext;
 
+import journaliste.GestJournalistesInterface;
 import lecteur.GestLecteurInterface;
+import model.Journaliste;
 import model.Lecteur;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -40,7 +42,27 @@ public class ValiderIdentificationJournaliste extends ActionSupport implements S
 
     @Override
 	public String execute() throws Exception {
-		return SUCCESS;
+    	Properties props = new Properties();
+		props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
+		props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
+		InitialContext ctx;
+		try {
+			ctx = new InitialContext(props);
+			GestJournalistesInterface bean = (GestJournalistesInterface) ctx
+					.lookup("java:global/EARTest/Gestion/GestionJournalistes!journaliste.GestJournalistesInterface");
+			Journaliste ret = bean.authentification(identifiant, motdepasse);
+			if (null == ret){
+				return INPUT;
+			}
+			else {
+				session.put("journaliste", ret);
+				return SUCCESS;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+        return INPUT;
     }
 
 	@Override

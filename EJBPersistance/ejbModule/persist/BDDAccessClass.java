@@ -185,4 +185,34 @@ public class BDDAccessClass implements BDDMethods{
 		return query.getResultList();
 	}
 
+	@Override
+	public Journaliste authentificationJournaliste(String email, String mdp) {
+		transac.begin();
+		Query query = em.createQuery("select j from Journaliste j where j.mail = \""+email+"\" AND j.password = \""+mdp+"\"");
+		if (query.getResultList().size() == 0 ){
+			transac.commit();
+			return null;
+		}
+		transac.commit();
+		return (Journaliste) query.getResultList().get(0);
+	}
+
+	@Override
+	public Redacteur authentificationRedacteur(String email, String mdp) {
+		transac.begin();
+		Query query = em.createQuery("select r from Redacteur r where r.mail = \""+email+"\" AND r.password = \""+mdp+"\"");
+		if (query.getResultList().size() == 0 ){
+			transac.commit();
+			return null;
+		}
+		transac.commit();
+		return (Redacteur) query.getResultList().get(0);
+	}
+
+	@Override
+	public Lecteur authentificationResponsable(String email, String mdp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

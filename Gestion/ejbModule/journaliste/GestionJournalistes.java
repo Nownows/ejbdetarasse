@@ -1,4 +1,4 @@
-package journalistes;
+package journaliste;
 
 import java.util.List;
 import java.util.Properties;
@@ -48,6 +48,13 @@ public class GestionJournalistes implements GestJournalistesInterface{
 
 	@Override
 	public List<Journaliste> getJournalistes() {
+		initBean();
 		return bean.getAllJournalistes();
+	}
+
+	@Override
+	public Journaliste authentification(String mail, String pass) {
+		initBean();
+		return bean.authentificationJournaliste(mail, pass);
 	}
 }
