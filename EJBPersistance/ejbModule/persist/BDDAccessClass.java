@@ -174,7 +174,7 @@ public class BDDAccessClass implements BDDMethods{
 
 	@Override
 	public List<Article> getAllArticles() {
-		Query query = em.createQuery("select a from Article a");
+		Query query = em.createQuery("select a from Article a WHERE a.validateur != NULL");
 		return query.getResultList();
 	}
 

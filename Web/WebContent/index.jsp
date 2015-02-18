@@ -30,24 +30,20 @@
 			
 				</td>
 			<td width="85%;">
-				<table border="1" width="100%">	
+				
 						<c:forEach var="entry" items="<%=session.getAttribute("articles")%>">
-						<tr>
-							<td>
-							${entry.getTitre()}
-							</td>
-							<td>
-								acheter cet article
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2">
+						<h2>${entry.getTitre()}</h2>
+						<% if (session.getAttribute("lecteur") == "" || session.getAttribute("lecteur") == null){ %>
+								Vous devez vous connecter pour voir la suite de l'article.
+						<% } 
+						else { %>
 							${entry.getCorps()}
-							</td>
-						</tr>
+						<% } %>
+							<br>
+							<br>
+							
+							<hr>
 						</c:forEach>
-					
-				</table> 
 			</td>
 		</tr>
 	</table>
