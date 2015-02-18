@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajout d'un article</title>
+<title>Plateforme de gestion des articles</title>
 </head>
 <body>
 	<table style="width: 100%">
@@ -13,22 +13,27 @@
 			<td width="15%;" valign="top">
 				<%
 					Journaliste j = (Journaliste) session.getAttribute("journaliste");
-				%>
-				Bonjour, <%=j.getNom() + " " + j.getPrenom()%>
+				%> Bonjour, <%=j.getNom() + " " + j.getPrenom()%>
 				<ul>
 					<li><s:a href="gonouvelarticle">ajouter un article </s:a></li>
 					<li><s:a href="govoirarticles">voir mes articles </s:a></li>
 				</ul>
 			</td>
-			<td width="85%;"><s:form method="post" action="AjouterArticle">
-					<s:textfield name="titre" id="titre" label="Titre"
-						labelposition="top" cssClass="input" />
-					<s:textfield name="prix" id="prix" label="Prix" labelposition="top"
-						cssClass="input" />
-					<s:textarea name="corps" id="corps" label="Corps"
-						labelposition="top" cssClass="input" />
-					<s:submit value="Ajouter l'article" />
-				</s:form></td>
+			<td width="85%;"><c:forEach var="entry"
+					items="<%=session.getAttribute("articlesJournaliste")%>">
+
+					<h2>${entry.getTitre()}</h2>
+							${entry.getCorps()}
+							<br>
+							<br>
+							<c:if test="${entry.getValidateur() == null }">
+								<span style="font-style: italic;">status : NON VALIDE</span>
+							</c:if>
+							<c:if test="${entry.getValidateur() != null }">
+								<span style="font-style: italic;">status : validé</span>
+							</c:if>
+							<hr>
+					</c:forEach></td>
 		</tr>
 	</table>
 

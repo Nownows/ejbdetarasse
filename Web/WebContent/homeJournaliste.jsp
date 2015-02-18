@@ -8,8 +8,15 @@
 <body>
 <div id="enveloppe">
     maison du journaliste
-    
+    <ul>
+    <li>
     <s:a href="gonouvelarticle">ajouter un article </s:a>
+    </li>
+    <li>
+    <s:a href="govoirarticles">voir mes articles </s:a>
+    </li>
+    </ul>
+    
 </div>
 </body>
 </html>
