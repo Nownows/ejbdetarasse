@@ -210,9 +210,15 @@ public class BDDAccessClass implements BDDMethods{
 	}
 
 	@Override
-	public Lecteur authentificationResponsable(String email, String mdp) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResponsableFacturation authentificationResponsable(String email, String mdp) {
+		transac.begin();
+		Query query = em.createQuery("select r from ResponsableFacturation r where r.mail = \""+email+"\" AND r.password = \""+mdp+"\"");
+		if (query.getResultList().size() == 0 ){
+			transac.commit();
+			return null;
+		}
+		transac.commit();
+		return (ResponsableFacturation) query.getResultList().get(0);
 	}
 
 }

@@ -39,7 +39,7 @@ public interface BDDMethods {
 	public Lecteur authentificationLecteur(String email, String mdp);
 	public Journaliste authentificationJournaliste(String email, String mdp);
 	public Redacteur authentificationRedacteur(String email, String mdp);
-	public Lecteur authentificationResponsable(String email, String mdp);
+	public ResponsableFacturation authentificationResponsable(String email, String mdp);
 	
 	public void updateArticle(Article a);
 }

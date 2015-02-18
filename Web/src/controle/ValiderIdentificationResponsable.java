@@ -6,11 +6,18 @@ package controle;
 
 import java.util.Map;
 import java.util.Properties;
+
 import javax.naming.InitialContext;
+
 import lecteur.GestLecteurInterface;
 import model.Lecteur;
+import model.Redacteur;
+import model.ResponsableFacturation;
 
 import org.apache.struts2.interceptor.SessionAware;
+
+import redacteur.GestRedacteurInterface;
+import responsable.GestResponsableInterface;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -38,7 +45,27 @@ public class ValiderIdentificationResponsable extends ActionSupport implements S
     
     @Override
 	public String execute() throws Exception {
-		return SUCCESS;
+    	Properties props = new Properties();
+		props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
+		props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
+		InitialContext ctx;
+		try {
+			ctx = new InitialContext(props);
+			GestResponsableInterface bean = (GestResponsableInterface) ctx
+					.lookup("java:global/EARTest/Gestion/GestionResponsables!responsable.GestResponsableInterface");
+			ResponsableFacturation ret = bean.authentification(identifiant, motdepasse);
+			if (null == ret){
+				return INPUT;
+			}
+			else {
+				session.put("responsableFacturation", ret);
+				return SUCCESS;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+        return INPUT;
     }
 
 	@Override
