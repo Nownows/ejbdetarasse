@@ -24,7 +24,7 @@
 					<input type="hidden" name="id" value="${entry.getIdArticle()}" />
 						Titre : <br> <input type="text" name="titre"
 							value="${entry.getTitre()}" /><br> Corps : <br>
-						<textarea type="text" name="corps">${entry.getCorps()}</textarea>
+						<textarea cols="40" rows="4" name="corps">${entry.getCorps()}</textarea>
 						<br> Prix : <br> <input type="text" name="prix"
 							value="${entry.getPrix()}" /><br>
 						<br> <input type="submit" value="valider" />

@@ -39,6 +39,6 @@
 		
 		
 	%>
-	<c:redirect url="http://localhost:8080/Web/govoirarticlesvalider"/>
+	<c:redirect url="http://localhost:8080/Web/homeRedacteur.jsp"/>
 </body>
 </html>
