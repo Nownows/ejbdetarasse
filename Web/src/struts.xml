@@ -40,6 +40,11 @@
 			<result type="redirect">/homeJournaliste.jsp</result>
 		</action>
 		
+		<action name="govoirarticlesvalider" class="controle.redacteur.ArticlesManager">
+			<result name="input">/redacteur/voirArticles.jsp</result>
+			<result name="success">/redacteur/voirArticles.jsp</result>
+		</action>
+		
 		<action name="govoirarticles" class="controle.journaliste.ArticlesManager">
 			<result name="input">/journaliste/voirArticles.jsp</result>
 			<result name="success">/journaliste/voirArticles.jsp</result>

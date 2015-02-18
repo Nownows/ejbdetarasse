@@ -99,4 +99,10 @@ public class GestionArticles implements GestArticleInterface {
 		return bean.getAllCategories();
 	}
 
+	@Override
+	public List<Article> getArticlesNotValidated() {
+		initBean();
+		return bean.getArticlesNotValidated();
+	}
+
 }

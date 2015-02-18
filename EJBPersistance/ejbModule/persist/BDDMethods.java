@@ -32,6 +32,7 @@ public interface BDDMethods {
 	public List<Article> getArticlesLessThan(Float price);
 	public List<Categorie> getAllCategories();
 	public List<Article> getArticlesByJournaliste(Journaliste j);
+	public List<Article> getArticlesNotValidated();
 	public void addCategorieArticle(Integer idA, Integer idC);
 	public void addArticleCategorie(Integer idC, Integer idA);
 	

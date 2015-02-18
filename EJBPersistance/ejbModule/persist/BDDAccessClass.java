@@ -154,7 +154,6 @@ public class BDDAccessClass implements BDDMethods{
 		article.setCorps(a.getCorps());
 		article.setTitre(a.getTitre());
 		article.setPrix(a.getPrix());
-		article.setJournaliste(a.getJournaliste());
 		article.setValidateur(a.getValidateur());
 		transac.commit();		
 	}
@@ -219,6 +218,12 @@ public class BDDAccessClass implements BDDMethods{
 		}
 		transac.commit();
 		return (ResponsableFacturation) query.getResultList().get(0);
+	}
+
+	@Override
+	public List<Article> getArticlesNotValidated() {
+		Query query = em.createQuery("select a from Article a WHERE a.validateur = NULL");
+		return query.getResultList();
 	}
 
 }

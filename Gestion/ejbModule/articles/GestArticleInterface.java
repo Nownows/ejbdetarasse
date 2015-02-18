@@ -14,10 +14,12 @@ public interface GestArticleInterface extends Serializable{
 	public List<Article> getArticles();
 	public List<Article> getArticlesCostsLessThan(Float price);
 	public List<Article> getArticlesByJournalist(Journaliste j);
+	public List<Article> getArticlesNotValidated();
 	public void insertArticle(Article a);
 	public void updateArticle(Article a);
 	public void addCategorieArticle(Integer idA, Integer idC);
 	public void addArticleCategorie(Integer idC, Integer idA);
 	public Categorie getCategorieById(Integer id);
 	public List<Categorie> getAllCategories();
+	
 }
