@@ -5,8 +5,8 @@
 	<projects>
 		<project>JPA</project>
 		<project>EJBPersistance</project>
-		<project>Web</project>
 		<project>Gestion</project>
+		<project>Web</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

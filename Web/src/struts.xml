@@ -58,5 +58,10 @@
 		<action name="gonouvelarticle">
 			<result type="redirect">/journaliste/addArticle.jsp</result>
 		</action>
+		
+		<action name="article" class="controle.lecteur.ArticleManager">
+			<result name="input">/lecteur/article.jsp</result>
+			<result name="success">/lecteur/article.jsp</result>
+		</action>
 	</package>
 </struts>

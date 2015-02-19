@@ -27,7 +27,8 @@ public class BDDAccessClass implements BDDMethods{
 	public Article getArticleById(Integer id) {
 		transac.begin();
 		Article article = em.find(Article.class, id);
-		article.getLesCategories().size();
+
+		//article.getLesCategories().size();
 		transac.commit();
 		return article;
 	}
@@ -225,5 +226,16 @@ public class BDDAccessClass implements BDDMethods{
 		Query query = em.createQuery("select a from Article a WHERE a.validateur = NULL");
 		return query.getResultList();
 	}
+
+//	@Override
+//	public Boolean estConsultable(int idArticle, int idLecteur) {
+////		Query query = em.createQuery("select a from ArticleLecteur a WHERE a.idArticle =:idA"
+////				+ " AND a.idLecteur =:idL");
+////		 int nb = query.setParameter("idA", idArticle).setParameter("idL", idLecteur).getMaxResults();
+////		 if(nb!=0){
+////			 return true;
+////		 }
+//		 return false;
+//	}
 
 }

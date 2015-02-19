@@ -43,4 +43,6 @@ public interface BDDMethods {
 	public ResponsableFacturation authentificationResponsable(String email, String mdp);
 	
 	public void updateArticle(Article a);
+	
+//	public Boolean estConsultable(int idArticle, int idLecteur);
 }

@@ -28,6 +28,7 @@ public class GestionArticles implements GestArticleInterface {
 			return (BDDMethods) ctx
 					.lookup("java:global/EARTest/EJBPersistance/BDDAccessClass!persist.BDDMethods");
 		} catch (NamingException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -41,6 +42,9 @@ public class GestionArticles implements GestArticleInterface {
 	@Override
 	public List<Article> getArticles() {
 		initBean();
+		if(bean==null){
+			System.out.println("hudeizfnj");
+		}
 		return bean.getAllArticles();
 	}
 

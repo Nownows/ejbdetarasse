@@ -24,6 +24,8 @@ public class Article implements Serializable{
 	private int idArticle;
 	@Column(name="titre")
 	private String titre;
+	@Column(name="header")
+	private String header;
 	@Column(name="corps")
 	private String corps;
 	@Column(name="prix")
@@ -84,6 +86,12 @@ public class Article implements Serializable{
 	}
 	public void setPrix(Float prix) {
 		this.prix = prix;
+	}
+	public String getHeader() {
+		return header;
+	}
+	public void setHeader(String header) {
+		this.header = header;
 	}
 	
 	
