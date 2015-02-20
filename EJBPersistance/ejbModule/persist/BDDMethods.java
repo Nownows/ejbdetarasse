@@ -5,6 +5,7 @@ import javax.ejb.Remote;
 
 import model.Article;
 import model.Categorie;
+import model.Employe;
 import model.Journaliste;
 import model.Lecteur;
 import model.Note;
@@ -31,7 +32,7 @@ public interface BDDMethods {
 	public List<Journaliste> getAllJournalistes();
 	public List<Article> getArticlesLessThan(Float price);
 	public List<Categorie> getAllCategories();
-	public List<Article> getArticlesByJournaliste(Journaliste j);
+	public List<Article> getArticlesByJournaliste(Employe j);
 	public List<Article> getArticlesNotValidated();
 	public void addCategorieArticle(Integer idA, Integer idC);
 	public void addArticleCategorie(Integer idC, Integer idA);
@@ -41,7 +42,7 @@ public interface BDDMethods {
 	public Journaliste authentificationJournaliste(String email, String mdp);
 	public Redacteur authentificationRedacteur(String email, String mdp);
 	public ResponsableFacturation authentificationResponsable(String email, String mdp);
-	
+	public Employe authentificationEmploye(String email, String mdp);
 	public void updateArticle(Article a);
 	
 //	public Boolean estConsultable(int idArticle, int idLecteur);

@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import model.Article;
 import model.Categorie;
+import model.Employe;
 import model.Journaliste;
 import model.Lecteur;
 import model.Note;
@@ -63,8 +64,8 @@ public class BDDAccessClass implements BDDMethods{
 	}
 
 	@Override
-	public List<Article> getArticlesByJournaliste(Journaliste j) {
-		Query query = em.createQuery("select a from Article a where a.journaliste.idJournaliste = "+j.getId());		
+	public List<Article> getArticlesByJournaliste(Employe j) {
+		Query query = em.createQuery("select a from Article a where a.journaliste.id = "+j.getId());		
 		return query.getResultList();
 	}
 
@@ -225,6 +226,18 @@ public class BDDAccessClass implements BDDMethods{
 	public List<Article> getArticlesNotValidated() {
 		Query query = em.createQuery("select a from Article a WHERE a.validateur = NULL");
 		return query.getResultList();
+	}
+
+	@Override
+	public Employe authentificationEmploye(String email, String mdp) {
+		transac.begin();
+		Query query = em.createQuery("select e from Employe e where e.mail = \""+email+"\" AND e.password = \""+mdp+"\"");
+		if (query.getResultList().size() == 0 ){
+			transac.commit();
+			return null;
+		}
+		transac.commit();
+		return (Employe) query.getResultList().get(0);
 	}
 
 //	@Override

@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 import persist.BDDMethods;
 import model.Article;
 import model.Categorie;
+import model.Employe;
 import model.Journaliste;
 
 @Stateless
@@ -58,7 +59,7 @@ public class GestionArticles implements GestArticleInterface {
 	}
 
 	@Override
-	public List<Article> getArticlesByJournalist(Journaliste j) {
+	public List<Article> getArticlesByJournalist(Employe j) {
 		initBean();
 		return bean.getArticlesByJournaliste(j);
 	}

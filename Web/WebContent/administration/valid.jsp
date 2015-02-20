@@ -20,7 +20,7 @@
 		a.setTitre(request.getParameter("titre"));
 		a.setCorps(request.getParameter("corps"));
 		a.setPrix(Float.valueOf(request.getParameter("prix")));
-		a.setValidateur((Redacteur)session.getAttribute("redacteur"));
+		a.setValidateur((Redacteur)session.getAttribute("employe"));
 
 		Properties props = new Properties();
 		props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
@@ -39,6 +39,6 @@
 		
 		
 	%>
-	<c:redirect url="http://localhost:8080/Web/homeRedacteur.jsp"/>
+	<c:redirect url="http://localhost:8080/Web/administration/homeAdministration.jsp"/>
 </body>
 </html>

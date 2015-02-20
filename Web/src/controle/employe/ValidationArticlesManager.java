@@ -1,4 +1,4 @@
-package controle.redacteur;
+package controle.employe;
 
 import java.util.List;
 import java.util.Map;
@@ -15,7 +15,7 @@ import articles.GestArticleInterface;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ArticlesManager  extends ActionSupport implements SessionAware{
+public class ValidationArticlesManager  extends ActionSupport implements SessionAware{
 
 	Map<String, Object> session;
 	
@@ -44,7 +44,7 @@ public class ArticlesManager  extends ActionSupport implements SessionAware{
 	public String execute() throws Exception {
 		init();
 		List<Article> la = bean.getArticlesNotValidated();
-		session.put("articles", la);
+		session.put("articlesNotValidated", la);
 		return SUCCESS;
 	}
 

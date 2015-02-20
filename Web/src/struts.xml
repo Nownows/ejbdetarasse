@@ -17,47 +17,51 @@
 			<result name="success">/index.jsp</result>
 		</action>
 		
-		<action name="ValiderIdentificationJournaliste" class="controle.ValiderIdentificationJournaliste">
-			<result name="input">/admin.jsp</result>
-			<result name="success">/homeJournaliste.jsp</result>
-		</action>
+<!-- 		<action name="ValiderIdentificationJournaliste" class="controle.ValiderIdentificationJournaliste"> -->
+<!-- 			<result name="input">/admin.jsp</result> -->
+<!-- 			<result name="success">/homeJournaliste.jsp</result> -->
+<!-- 		</action> -->
 		
-		<action name="ValiderIdentificationRedacteur" class="controle.ValiderIdentificationRedacteur">
-			<result name="input">/admin.jsp</result>
-			<result name="success">/homeRedacteur.jsp</result>
-		</action>
+<!-- 		<action name="ValiderIdentificationRedacteur" class="controle.ValiderIdentificationRedacteur"> -->
+<!-- 			<result name="input">/admin.jsp</result> -->
+<!-- 			<result name="success">/homeRedacteur.jsp</result> -->
+<!-- 		</action> -->
 		
-		<action name="ValiderIdentificationResponsable" class="controle.ValiderIdentificationResponsable">
+<!-- 		<action name="ValiderIdentificationResponsable" class="controle.ValiderIdentificationResponsable"> -->
+<!-- 			<result name="input">/admin.jsp</result> -->
+<!-- 			<result name="success">/homeResponsable.jsp</result> -->
+<!-- 		</action> -->
+		
+		<action name="ValiderIdentificationEmploye" class="controle.employe.ValiderIdentification">
 			<result name="input">/admin.jsp</result>
-			<result name="success">/homeResponsable.jsp</result>
+			<result name="success">/administration/homeAdministration.jsp</result>
 		</action>
 
 		<action name="gotopage2">
 			<result type="redirect">/admin.jsp</result>
 		</action>
 		
-		<action name="gohomejournaliste">
-			<result type="redirect">/homeJournaliste.jsp</result>
+<!-- 		Employés                     -->
+		<action name="validationArticles" class="controle.employe.ValidationArticlesManager">
+			<result name="input">/administration/validerArticles.jsp</result>
+			<result name="success">/administration/validerArticles.jsp</result>
 		</action>
 		
-		<action name="govoirarticlesvalider" class="controle.redacteur.ArticlesManager">
-			<result name="input">/redacteur/voirArticles.jsp</result>
-			<result name="success">/redacteur/voirArticles.jsp</result>
+		<action name="mesArticles" class="controle.employe.ArticlesManager">
+			<result name="input">/administration/voirArticles.jsp</result>
+			<result name="success">/administration/voirArticles.jsp</result>
 		</action>
 		
-		<action name="govoirarticles" class="controle.journaliste.ArticlesManager">
-			<result name="input">/journaliste/voirArticles.jsp</result>
-			<result name="success">/journaliste/voirArticles.jsp</result>
+		<action name="nouvelArticle">
+			<result type="redirect">/administration/addArticle.jsp</result>
 		</action>
 		
-		<action name="AjouterArticle" class="controle.journaliste.AjoutArticle">
-			<result name="input">/journaliste/addArticle.jsp</result>
-			<result name="success">/homeJournaliste.jsp</result>
+	<action name="AjouterArticle" class="controle.employe.AjoutArticle">
+			<result name="input">/administration/addArticle.jsp</result>
+			<result name="success">/administration/homeAdministration.jsp</result>
 		</action>
 		
-		<action name="gonouvelarticle">
-			<result type="redirect">/journaliste/addArticle.jsp</result>
-		</action>
+<!-- 		Tous -->
 		
 		<action name="article" class="controle.lecteur.ArticleManager">
 			<result name="input">/lecteur/article.jsp</result>

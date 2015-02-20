@@ -10,31 +10,14 @@
 <body>
 	<table width="100%">
 		<tr>
-			<td ><s:form method="post" action="ValiderIdentificationJournaliste">
-	Connexion des journalistes
+			<td ><s:form method="post" action="ValiderIdentificationEmploye">
+	Connexion des Employes
 		<s:textfield name="identifiant" id="identifiant" label="Identifiant"
 						labelposition="top" cssClass="input" />
 					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
 						labelposition="top" cssClass="input" />
 					<s:submit value="Identification" />
 				</s:form></td>
-			<td><s:form method="post" action="ValiderIdentificationRedacteur">
-	Connexion des rédacteurs
-		<s:textfield name="identifiant" id="identifiant" label="Identifiant"
-						labelposition="top" cssClass="input" />
-					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
-						labelposition="top" cssClass="input" />
-					<s:submit value="Identification" />
-				</s:form></td>
-			<td><s:form method="post" action="ValiderIdentificationResponsable">
-	Connexion des responsables de facturation
-		<s:textfield name="identifiant" id="identifiant" label="Identifiant"
-						labelposition="top" cssClass="input" />
-					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
-						labelposition="top" cssClass="input" />
-					<s:submit value="Identification" />
-				</s:form></td>
-		</tr>
 	</table>
 
 </body>

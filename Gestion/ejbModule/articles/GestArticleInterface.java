@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import model.Article;
 import model.Categorie;
+import model.Employe;
 import model.Journaliste;
 
 @Remote
@@ -13,7 +14,7 @@ public interface GestArticleInterface extends Serializable{
 	public Article getArticleById(Integer id);
 	public List<Article> getArticles();
 	public List<Article> getArticlesCostsLessThan(Float price);
-	public List<Article> getArticlesByJournalist(Journaliste j);
+	public List<Article> getArticlesByJournalist(Employe j);
 	public List<Article> getArticlesNotValidated();
 	public void insertArticle(Article a);
 	public void updateArticle(Article a);

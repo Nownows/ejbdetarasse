@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "redacteur")
-@DiscriminatorValue( "Employe")
+@DiscriminatorValue( "Redacteur")
 public class Redacteur extends Employe implements Serializable {
 
 	private static final long serialVersionUID = -5897640158709261557L;
