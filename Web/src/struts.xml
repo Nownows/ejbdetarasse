@@ -63,5 +63,10 @@
 			<result name="input">/lecteur/article.jsp</result>
 			<result name="success">/lecteur/article.jsp</result>
 		</action>
+		
+		<action name="categorie" class="controle.lecteur.CategorieManager">
+			<result name="input">/lecteur/categorie.jsp</result>
+			<result name="success">/lecteur/categorie.jsp</result>
+		</action>
 	</package>
 </struts>

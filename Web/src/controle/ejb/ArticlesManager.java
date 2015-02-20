@@ -6,7 +6,10 @@ import java.util.Properties;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+
 import model.Article;
+import model.Categorie;
+
 import org.apache.struts2.interceptor.SessionAware;
 
 import articles.GestArticleInterface;
@@ -40,7 +43,9 @@ public class ArticlesManager extends ActionSupport implements SessionAware {
 	public String execute() throws Exception {
 		init();
 		List<Article> articles = bean.getArticles();
+		List<Categorie> categories = bean.getAllCategories();
 		session.put("articles", articles);
+		session.put("categories", categories);
 		return SUCCESS;
 
 	}
