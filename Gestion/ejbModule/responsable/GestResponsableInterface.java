@@ -2,8 +2,6 @@ package responsable;
 
 import javax.ejb.Remote;
 
-import model.Lecteur;
-import model.Redacteur;
 import model.ResponsableFacturation;
 
 @Remote

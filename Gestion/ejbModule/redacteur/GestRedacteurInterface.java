@@ -2,7 +2,6 @@ package redacteur;
 
 import javax.ejb.Remote;
 
-import model.Lecteur;
 import model.Redacteur;
 
 @Remote

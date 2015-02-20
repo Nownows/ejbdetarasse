@@ -7,8 +7,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import persist.BDDMethods;
-import model.Lecteur;
-import model.Redacteur;
 import model.ResponsableFacturation;
 
 @Stateless
