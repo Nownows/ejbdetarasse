@@ -42,9 +42,6 @@ public class GestionArticles implements GestArticleInterface {
 	@Override
 	public List<Article> getArticles() {
 		initBean();
-		if(bean==null){
-			System.out.println("hudeizfnj");
-		}
 		return bean.getAllArticles();
 	}
 

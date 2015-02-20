@@ -45,7 +45,7 @@
 	
 
   
-  <ul class="nav nav-pills">
+  <ul class="nav nav-pills navbar-inverse">
   <li role="presentation" class="active" ><a href="#">Home</a></li>
   <c:forEach var="categorie" items="<%=session.getAttribute("categories")%>">
   <s:url action="categorie" var="urlCategorie">

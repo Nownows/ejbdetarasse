@@ -17,6 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AjoutArticle  extends ActionSupport implements SessionAware{
 
 	private String titre;
+	private String header;
 	private String corps;
 	private String prix;
 	Map<String, Object> session;
@@ -51,6 +52,14 @@ public class AjoutArticle  extends ActionSupport implements SessionAware{
 	}
 
 
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
+	}
+
 	public String getCorps() {
 		return corps;
 	}
@@ -76,6 +85,7 @@ public class AjoutArticle  extends ActionSupport implements SessionAware{
 		init();
 		Article a = new Article();
 		a.setTitre(titre);
+		a.setHeader(header);
 		a.setCorps(corps);
 		a.setPrix(Float.valueOf(prix));
 		a.setJournaliste((Journaliste)session.get("journaliste"));

@@ -13,8 +13,7 @@
 			<td width="15%;" valign="top">
 				<%
 					Journaliste j = (Journaliste) session.getAttribute("journaliste");
-				%>
-				Bonjour, <%=j.getNom() + " " + j.getPrenom()%>
+				%> Bonjour, <%=j.getNom() + " " + j.getPrenom()%>
 				<ul>
 					<li><s:a href="gonouvelarticle">ajouter un article </s:a></li>
 					<li><s:a href="govoirarticles">voir mes articles </s:a></li>
@@ -22,6 +21,8 @@
 			</td>
 			<td width="85%;"><s:form method="post" action="AjouterArticle">
 					<s:textfield name="titre" id="titre" label="Titre"
+						labelposition="top" cssClass="input" />
+					<s:textfield name="header" id="header" label="Header"
 						labelposition="top" cssClass="input" />
 					<s:textfield name="prix" id="prix" label="Prix" labelposition="top"
 						cssClass="input" />
