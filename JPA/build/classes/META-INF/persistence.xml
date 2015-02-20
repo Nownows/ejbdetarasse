@@ -2,7 +2,7 @@
 <persistence version="2.1"
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="JPA">
+	<persistence-unit name="JPA" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
@@ -20,6 +20,14 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jee" />
 
 			<property name="javax.persistence.ddl-generation" value="drop-and-create-tables" />
+			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.schema-generation.scripts.action" value="create"/>
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+			<property name="eclipselink.ddl-generation.output-mode" value="database"/>
+			<property name="eclipselink.application-location" value="C:\Users\Aethia\Desktop"/>
+			<property name="eclipselink.create-ddl-jdbc-file-name" value="test"/>
+			<property name="javax.persistence.schema-generation.create-database-schemas" value="true"/>
+			<property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
 
 		</properties>
 	</persistence-unit>
