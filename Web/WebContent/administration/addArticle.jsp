@@ -8,10 +8,13 @@
 <title>Ajout d'un article</title>
 </head>
 <body>
+<%@include file="homeAdministration.jsp" %>
+<div style="width:  900px;margin: auto;background-color: #F8F8F8 ;color:black">
 	<table style="width: 100%">
 		<tr>
-			<%@include file="homeAdministration.jsp" %>
-			<td width="85%;"><s:form method="post" action="AjouterArticle">
+		
+			
+			<td width="85%;"><s:form method="post" action="AjouterArticle" >
 					<s:textfield name="titre" id="titre" label="Titre"
 						labelposition="top" cssClass="input" />
 					<s:textfield name="header" id="header" label="Header"
@@ -25,6 +28,6 @@
 		</tr>
 	</table>
 
-
+</div>
 </body>
 </html>

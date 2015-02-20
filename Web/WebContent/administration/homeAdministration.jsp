@@ -3,22 +3,30 @@
 <%@ page import="model.Employe"%>
 <html>
 <head>
-<title><s:text name="accueil.label"/></title>
-<style type="text/css">@import url(css/styles.css);</style>
+<link href="${pageContext.request.contextPath}/style.css" type="text/css" media="screen" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+<title>Administration</title>
 </head>
 <body>
-<div id="enveloppe">
 <%
 Employe employe = (Employe)session.getAttribute("employe");
 %>
+<div id="headerConnexion">
+		<div style ="float:left;margin-top:-10px"><h2>Maison du <%= employe.getDisc()%></h2></div>
+			<div style="float:right; margin-right:15px ">
+			<p style="margin:3px;" > Bonjour <%=employe.getNom() + " " + employe.getPrenom()%></p>
+			</div>
+		</div>
+		
+		
+<div style="width:  900px;margin: auto;background-color: #F8F8F8">
 
-<%= employe.getDisc()%>
+
 
 <%
 if(employe.getDisc().equals("Journaliste")==true){
 
 %>
-maison du journaliste
     <ul>
     <li><s:a href="nouvelArticle">ajouter un article </s:a></li>
     <li><s:a href="mesArticles">voir mes articles </s:a></li>
@@ -26,7 +34,6 @@ maison du journaliste
 <%
 }else if(employe.getDisc().equals("Redacteur")==true){
 %>
-maison du rédacteur
 		<ul>
 			<li><s:a href="validationArticles">voir les articles à valider </s:a></li>
 		</ul>
@@ -35,7 +42,8 @@ maison du rédacteur
 
 
 %>
-    maison du responsable
+
+
 <%
 }
 %>

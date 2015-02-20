@@ -45,7 +45,6 @@ public class ValiderIdentification extends ActionSupport implements SessionAware
 
     @Override
 	public String execute() throws Exception {
-    	System.out.println("lul");
     	Properties props = new Properties();
 		props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
 		props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
