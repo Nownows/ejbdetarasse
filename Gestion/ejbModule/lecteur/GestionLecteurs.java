@@ -46,4 +46,11 @@ public class GestionLecteurs implements GestLecteurInterface {
 		return bean.authentificationLecteur(mail, pass);
 	}
 
+	@Override
+	public void acheterArticle(int idLecteur, int idArticle) {
+		initBean();
+		bean.acheterArticle(idLecteur, idArticle);
+		
+	}
+
 }
