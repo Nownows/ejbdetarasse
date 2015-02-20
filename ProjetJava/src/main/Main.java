@@ -26,7 +26,7 @@ public class Main {
 			ctx = new InitialContext(props);
 			GestLecteurInterface bean = (GestLecteurInterface) ctx
 					.lookup("java:global/EARTest/Gestion/GestionLecteurs!lecteur.GestLecteurInterface");
-			System.out.println(bean);
+			bean.acheterArticle(1, 1);
 
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

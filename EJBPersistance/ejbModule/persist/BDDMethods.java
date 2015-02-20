@@ -26,6 +26,7 @@ public interface BDDMethods {
 	public Redacteur getRedacteurById(Integer id);
 	public Journaliste getJournalisteById(Integer id);
 	public Article getArticleById(Integer id);
+	public Lecteur getLecteurById(Integer id);
 	public Categorie getCategorieById(Integer id);
 	
 	public List<Article> getAllArticles();
@@ -44,6 +45,7 @@ public interface BDDMethods {
 	public ResponsableFacturation authentificationResponsable(String email, String mdp);
 	public Employe authentificationEmploye(String email, String mdp);
 	public void updateArticle(Article a);
+	public void acheterArticle(int idLecteur, int idArticle);
 	
 //	public Boolean estConsultable(int idArticle, int idLecteur);
 }
