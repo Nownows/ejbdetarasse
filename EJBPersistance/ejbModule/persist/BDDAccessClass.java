@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import model.Article;
+import model.ArticleAchat;
 import model.Categorie;
 import model.Journaliste;
 import model.Lecteur;
@@ -31,6 +32,14 @@ public class BDDAccessClass implements BDDMethods{
 		//article.getLesCategories().size();
 		transac.commit();
 		return article;
+	}
+	
+	@Override
+	public Lecteur getLecteurById(Integer id) {
+		transac.begin();
+		Lecteur l = em.find(Lecteur.class, id);
+		transac.commit();
+		return l;
 	}
 
 	@Override
@@ -225,6 +234,16 @@ public class BDDAccessClass implements BDDMethods{
 	public List<Article> getArticlesNotValidated() {
 		Query query = em.createQuery("select a from Article a WHERE a.validateur = NULL");
 		return query.getResultList();
+	}
+
+	@Override
+	public void acheterArticle(int idLecteur, int idArticle) {
+		ArticleAchat aa = new ArticleAchat();
+		aa.setA(this.getArticleById(idArticle));
+		aa.setL(this.getLecteurById(idLecteur));
+		transac.begin();
+		em.persist(aa);	
+		transac.commit();	
 	}
 
 //	@Override
