@@ -70,7 +70,6 @@ public class InscriptionManager  extends ActionSupport implements SessionAware{
 	
 	@Override
 	public String execute() throws Exception {
-		System.out.println("ejb null");
 		if(nom.equals("") || prenom.equals("") || email.equals("") || password.equals("")){
 			return INPUT;
 		}

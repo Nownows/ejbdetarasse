@@ -14,8 +14,8 @@
 <title>Plateforme de gestion des articles</title>
 </head>
 <body>
-	<%@include file="../header.jsp"%>
-	<%@include file="../categories.jsp"%>
+	<jsp:include page="../header.jsp" />
+<jsp:include page="../categories.jsp" />
 
 
 	<div style="width: 900px; margin: auto; background-color: #F8F8F8">

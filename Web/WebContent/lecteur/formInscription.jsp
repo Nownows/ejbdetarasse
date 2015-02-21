@@ -13,8 +13,8 @@
 </head>
 <body>
 	
-	<%@include file="../header.jsp" %>
-<%@include file="../categories.jsp" %>
+<jsp:include page="../header.jsp" />
+<jsp:include page="../categories.jsp" />
   
  
 
