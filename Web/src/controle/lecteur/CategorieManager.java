@@ -39,6 +39,7 @@ public class CategorieManager  extends ActionSupport implements SessionAware{
 		idCategorie = Integer.parseInt(idC[0]);
 		for(Categorie c: categories){
 			if(c.getId() == idCategorie){
+				System.out.println("jai trouvé categ");
 				articles = c.getLesArticles();
 			}
 		}

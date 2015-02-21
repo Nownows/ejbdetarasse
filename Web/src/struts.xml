@@ -17,7 +17,13 @@
 			<result name="input">/index.jsp</result>
 			<result name="success">/index.jsp</result>
 		</action>
-		
+		<action name="ValiderInscription" class="controle.lecteur.InscriptionManager">
+			<result name="input">/index.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="deconnexion" class="controle.lecteur.DeconnexionManager">
+			<result name="success">/index.jsp</result>
+		</action>
 <!-- 		<action name="ValiderIdentificationJournaliste" class="controle.ValiderIdentificationJournaliste"> -->
 <!-- 			<result name="input">/admin.jsp</result> -->
 <!-- 			<result name="success">/homeJournaliste.jsp</result> -->
@@ -71,7 +77,16 @@
 			<result name="input">/lecteur/article.jsp</result>
 			<result name="success">/lecteur/article.jsp</result>
 		</action>
-		
+		<action name="ValiderAbonnement" class="controle.lecteur.SouscriptionAbonnement">
+			<result name="input">/lecteur/formAbonnement.jsp</result>
+			<result name="success">/lecteur/abonnementValide.jsp</result>
+		</action>
+		<action name="gotoInscription">
+			<result type="redirect">/lecteur/formInscription.jsp</result>
+		</action>
+		<action name="gotoAbonnement">
+			<result type="redirect">/lecteur/formAbonnement.jsp</result>
+		</action>
 <!-- 		Tous -->
 		
 		<action name="article" class="controle.lecteur.ArticleManager">

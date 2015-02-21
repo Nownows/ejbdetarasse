@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.Lecteur"%>
 <%@ page import="model.Article"%>
-<%@ page import="controle.Parametres;"%>
+<%@ page import="controle.Parametres"%>
 <html>
 <head>
 <link href="${pageContext.request.contextPath}/style.css"
@@ -14,64 +14,11 @@
 <title>Plateforme de gestion des articles</title>
 </head>
 <body>
-	<div id="headerConnexion">
-		<div style="float: left; margin-top: -10px">
-			<h2>Plateforme Article</h2>
-		</div>
-
-		<div style="float: right; margin-right: 15px">
-			<%
-				if (session.getAttribute("lecteur") == ""
-						|| session.getAttribute("lecteur") == null) {
-			%>
-
-			<p style="margin: 3px;">
-				<s:form method="post" action="ValiderIdentification" theme="simple">
-					<s:textfield name="identifiant" id="identifiant"
-						label="Identifiant" labelposition="left" cssClass="input" />
-					<s:property value="errIidentifiant" />
-					<s:password name="motdepasse" id="motdepasse" label="Mot de passe"
-						labelposition="left" cssClass="input" />
-					<s:property value="errMotdepasse" />
-					<s:submit value="Identification" />
-				</s:form>
-			</p>
-			<%
-				} else {
-					Lecteur l = (Lecteur) session.getAttribute("lecteur");
-			%>
-			<p style="margin: 3px;">
-				Bonjour
-				<%=l.getNom() + " " + l.getPrenom()%></p>
-			<%
-				}
-			%>
-			<p style="margin: -12px; float: right; margin-right: 5px;">
-				<s:a href="gotopage2">administration </s:a>
-			</p>
-
-		</div>
-	</div>
+	<%@include file="../header.jsp" %>
+<%@include file="../categories.jsp" %>
 
 
-
-	<ul class="nav nav-pills navbar-inverse" >
-		<li role="presentation"><a href="Identification">Home</a></li>
-		<c:forEach var="categorie"
-			items="<%=session.getAttribute("categories")%>">
-			<s:url action="categorie" var="urlCategorie">
-				<s:param name="idCategorie">${categorie.getId()}</s:param>
-			</s:url>
-			<li role="presentation"><a
-				href="<s:property value="#urlCategorie" />">${categorie.getLibelle()}</a></li>
-		</c:forEach>
-
-	</ul>
-
-
-
-
-	<div style="width: 900px; margin: auto; background-color: #F8F8F8">
+		<div style="width: 900px; margin: auto; background-color: #F8F8F8">
 		<table style="width: 100%">
 			<tr>
 				<td width="10%;"></td>
@@ -90,10 +37,6 @@
  		Boolean consultable = (Boolean) session.getAttribute("consultation");
  		if (consultable.booleanValue() ==true) {
  			consultable = (Boolean) session.getAttribute("consultation");
- 			
- 			%>
- 			jbhjvfuy
- 			<%
  		}
  		if (lecteur.getStatus() == Parametres.LECTEUR_ABONNE
  				|| consultable == true) {//il lit l'article si abonné
@@ -115,7 +58,6 @@
 							role="button">Acheter cet article</a>
 					</p> <%
  	}
-
  	}
  %> <br> <br>
 					<hr>

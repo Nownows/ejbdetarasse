@@ -41,6 +41,7 @@ public class ArticlesManager extends ActionSupport implements SessionAware {
 
 	@Override
 	public String execute() throws Exception {
+		session.remove("idCategorie");
 		init();
 		List<Article> articles = bean.getArticles();
 		List<Categorie> categories = bean.getAllCategories();
