@@ -4,8 +4,8 @@
 <%@ page import="model.Lecteur;"%>
 <html>
 <head>
-<link href="style.css" type="text/css" media="screen" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/style.css" type="text/css" media="screen" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Plateforme de gestion des articles</title>
 </head>

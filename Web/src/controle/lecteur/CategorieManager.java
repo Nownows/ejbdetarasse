@@ -3,19 +3,12 @@ package controle.lecteur;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import model.Article;
 import model.Categorie;
-import model.Journaliste;
-import model.Lecteur;
-import articleLecteur.GestArticleLecteurInterface;
-import articles.GestArticleInterface;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;

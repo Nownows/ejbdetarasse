@@ -47,5 +47,5 @@ public interface BDDMethods {
 	public void updateArticle(Article a);
 	public void acheterArticle(int idLecteur, int idArticle);
 	
-//	public Boolean estConsultable(int idArticle, int idLecteur);
+	public Boolean estConsultable(int idArticle, int idLecteur);
 }

@@ -42,6 +42,10 @@
 			<result type="redirect">/admin.jsp</result>
 		</action>
 		
+		<action name="acheterArticle">
+			<result type="redirect">/lecteur/achatArticle.jsp</result>
+		</action>
+		
 <!-- 		Employés                     -->
 		<action name="validationArticles" class="controle.employe.ValidationArticlesManager">
 			<result name="input">/administration/validerArticles.jsp</result>
@@ -60,6 +64,12 @@
 	<action name="AjouterArticle" class="controle.employe.AjoutArticle">
 			<result name="input">/administration/addArticle.jsp</result>
 			<result name="success">/administration/homeAdministration.jsp</result>
+		</action>
+		
+		<!--  Lecteurs -->
+		<action name="ValiderAchat" class="controle.lecteur.AchatArticle">
+			<result name="input">/lecteur/article.jsp</result>
+			<result name="success">/lecteur/article.jsp</result>
 		</action>
 		
 <!-- 		Tous -->

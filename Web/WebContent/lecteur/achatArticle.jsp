@@ -16,7 +16,7 @@
 <body>
 	<div id="headerConnexion">
 		<div style="float: left; margin-top: -10px">
-			<h2>Plateforme Article</h2>
+			<h2>Plateforme ddArticle</h2>
 		</div>
 
 		<div style="float: right; margin-right: 15px">
@@ -55,7 +55,7 @@
 
 
 
-	<ul class="nav nav-pills navbar-inverse" >
+	<ul class="nav nav-pills navbar-inverse">
 		<li role="presentation"><a href="Identification">Home</a></li>
 		<c:forEach var="categorie"
 			items="<%=session.getAttribute("categories")%>">
@@ -80,44 +80,42 @@
 						Article a = (Article) session.getAttribute("article");
 					%>
 
-					<h2><%=a.getTitre()%></h2>
-					<h3><%=a.getHeader()%></h3> <%
- 	if (session.getAttribute("lecteur") == ""
- 			|| session.getAttribute("lecteur") == null) {
- %> Vous devez vous connecter pour voir la suite de l'article. <%
- 	} else {
- 		Lecteur lecteur = (Lecteur) session.getAttribute("lecteur");
- 		Boolean consultable = (Boolean) session.getAttribute("consultation");
- 		if (consultable.booleanValue() ==true) {
- 			consultable = (Boolean) session.getAttribute("consultation");
- 			
- 			%>
- 			jbhjvfuy
- 			<%
- 		}
- 		if (lecteur.getStatus() == Parametres.LECTEUR_ABONNE
- 				|| consultable == true) {//il lit l'article si abonné
+					<h2>
+						Acheter l'article "<%=a.getTitre()%>"
+					</h2> <br> Prix : <%=a.getPrix()%> <%
+ 	Lecteur lecteur = (Lecteur) session.getAttribute("lecteur");
  %>
-
-
-					<p>
-						<%=a.getCorps()%>
-
-						<%
-							} else { // si pas abonné
-						%>
-					
-					<p>Pour avoir l'accès complet à cet article, vous devez vous
-						abonner ou acheter à l'unité.</p>
-
-					<p>
-						<a class="btn btn-primary btn-lg" href="acheterArticle"
-							role="button">Acheter cet article</a>
-					</p> <%
- 	}
-
- 	}
- %> <br> <br>
+					<div style="width:450px">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">#</span> <input type="text" class="form-control"
+								placeholder="Card Number" aria-describedby="basic-addon1">
+						</div>
+						 <div class="form-group">
+						Expiration <select class="form-control" style="width: 60px;">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+						<select class="form-control" style="width: 60px;">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+						<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">#</span> <input type="text" class="form-control"
+								placeholder="Clé" aria-describedby="basic-addon1" size="30">
+						</div>
+						</div>
+						 <s:form method="post" action="ValiderAchat"
+						theme="simple">
+						
+						<s:submit value="Valider" />
+					</s:form>
+					</div>
 					<hr>
 
 				</td>

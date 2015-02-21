@@ -258,15 +258,17 @@ public class BDDAccessClass implements BDDMethods{
 		transac.commit();	
 	}
 
-//	@Override
-//	public Boolean estConsultable(int idArticle, int idLecteur) {
-////		Query query = em.createQuery("select a from ArticleLecteur a WHERE a.idArticle =:idA"
-////				+ " AND a.idLecteur =:idL");
-////		 int nb = query.setParameter("idA", idArticle).setParameter("idL", idLecteur).getMaxResults();
-////		 if(nb!=0){
-////			 return true;
-////		 }
-//		 return false;
-//	}
+	@Override
+	public Boolean estConsultable(int idArticle, int idLecteur) {
+		Query query = em.createQuery("select a from ArticleAchat a WHERE a.a.idArticle =:idA"
+				+ " AND a.l.id =:idL");
+		int nb=0;
+		 nb = query.setParameter("idA", idArticle).setParameter("idL", idLecteur).getResultList().size();
+		 System.out.println("nb +" + nb);
+		 if(nb!=0){
+			 return true;
+		 }
+		 return false;
+	}
 
 }

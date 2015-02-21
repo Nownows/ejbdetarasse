@@ -9,6 +9,7 @@ import javax.naming.NamingException;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import lecteur.GestLecteurInterface;
 import model.Article;
 import model.Lecteur;
 import articles.GestArticleInterface;
@@ -16,22 +17,12 @@ import articles.GestArticleInterface;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ArticleManager  extends ActionSupport implements SessionAware{
-	private int idArticle;
+public class AchatArticle  extends ActionSupport implements SessionAware{
+
 	Map<String, Object> session;
-	
 
 
-	public int getIdArticle() {
-		return idArticle;
-	}
-
-
-	public void setIdArticle(int idArticle) {
-		this.idArticle = idArticle;
-	}
-
-	private static GestArticleInterface bean = null;
+	private static GestLecteurInterface bean = null;
 	
 	private static void init() {
 		if (bean == null) {
@@ -41,9 +32,8 @@ public class ArticleManager  extends ActionSupport implements SessionAware{
 			InitialContext ctx;
 			try {
 				ctx = new InitialContext(props);
-				bean = (GestArticleInterface) ctx
-						.lookup("java:global/EARTest/Gestion/GestionArticles!articles.GestArticleInterface");
-
+				bean = (GestLecteurInterface) ctx
+						.lookup("java:global/EARTest/Gestion/GestionLecteurs!lecteur.GestLecteurInterface");
 			} catch (NamingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -55,25 +45,12 @@ public class ArticleManager  extends ActionSupport implements SessionAware{
 	@Override
 	public String execute() throws Exception {
 		init();
-	String[] idS =  (String[]) ActionContext.getContext().getParameters().get("idArticle");
+		System.out.println("achat d'article");
+	Article article =  (Article) ActionContext.getContext().getSession().get("article");
 	Lecteur lecteur = (Lecteur) ActionContext.getContext().getSession().get("lecteur");
-	if(idS!=null){
-		idArticle = Integer.parseInt(idS[0]);
-		Article a = bean.getArticleById(idArticle);
-		if(bean==null){
-			System.out.println("coucou");
-		}else{
-			System.out.println("hu");
-		}
-		boolean consultation =false;
-		if(lecteur!=null){
-			consultation = bean.estConsultable(idArticle, lecteur.getId());
-			
-				System.out.println(consultation);	
-		}	
-		session.put("consultation", consultation);	
-		session.put("article", a);
-	}
+	bean.acheterArticle(lecteur.getId(), article.getIdArticle());
+	System.out.println("achat d'article");
+	session.put("consultation", true);	
 		return SUCCESS;
 	}
 

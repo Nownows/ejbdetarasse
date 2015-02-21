@@ -107,4 +107,10 @@ public class GestionArticles implements GestArticleInterface {
 		return bean.getArticlesNotValidated();
 	}
 
+	@Override
+	public boolean estConsultable(int idArticle, int idLecteur) {
+		initBean();
+		return bean.estConsultable(idArticle, idLecteur);
+	}
+
 }
