@@ -14,11 +14,11 @@
 <title>Plateforme de gestion des articles</title>
 </head>
 <body>
-	<%@include file="../header.jsp" %>
-<%@include file="../categories.jsp" %>
+	<%@include file="../header.jsp"%>
+	<%@include file="../categories.jsp"%>
 
 
-		<div style="width: 900px; margin: auto; background-color: #F8F8F8">
+	<div style="width: 900px; margin: auto; background-color: #F8F8F8">
 		<table style="width: 100%">
 			<tr>
 				<td width="10%;"></td>
@@ -38,8 +38,7 @@
  		if (consultable.booleanValue() ==true) {
  			consultable = (Boolean) session.getAttribute("consultation");
  		}
- 		if (lecteur.getStatus() == Parametres.LECTEUR_ABONNE
- 				|| consultable == true) {//il lit l'article si abonné
+ 		if (lecteur.getStatus() == Parametres.LECTEUR_ABONNE || consultable == true) {//il lit l'article si abonné
  %>
 
 
@@ -56,9 +55,10 @@
 					<p>
 						<a class="btn btn-primary btn-lg" href="acheterArticle"
 							role="button">Acheter cet article</a>
-					</p> <%
- 	}
- 	}
+					</p> <% } 
+					
+					
+			}
  %> <br> <br>
 					<hr>
 
