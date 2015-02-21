@@ -57,6 +57,14 @@
 			<result type="redirect">/administration/addArticle.jsp</result>
 		</action>
 		
+		<action name="gestionDossier">
+			<result type="redirect">/administration/gestionDossier.jsp</result>
+		</action>
+		
+		<action name="validerDossier">
+			<result type="redirect">/administration/validerDossier.jsp</result>
+		</action>
+		
 	<action name="AjouterArticle" class="controle.employe.AjoutArticle">
 			<result name="input">/administration/addArticle.jsp</result>
 			<result name="success">/administration/homeAdministration.jsp</result>

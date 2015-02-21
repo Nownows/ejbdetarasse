@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page import="model.Employe"%>
+<%@ page import="model.*"%>
 <html>
 <head>
 <link href="${pageContext.request.contextPath}/style.css" type="text/css" media="screen" rel="stylesheet">
@@ -25,21 +25,28 @@ Employe employe = (Employe)session.getAttribute("employe");
 
 <%
 if(employe.getDisc().equals("Journaliste")==true){
+Journaliste j = (Journaliste)employe;
+session.setAttribute("journaliste", j);
 
 %>
     <ul>
     <li><s:a href="nouvelArticle">ajouter un article </s:a></li>
     <li><s:a href="mesArticles">voir mes articles </s:a></li>
+    <li><s:a href="gestionDossier">gérer les dossiers d'articles </s:a></li>
     </ul>
 <%
 }else if(employe.getDisc().equals("Redacteur")==true){
+Redacteur r = (Redacteur)employe;
+session.setAttribute("redacteur", r);
 %>
 		<ul>
 			<li><s:a href="validationArticles">voir les articles à valider </s:a></li>
+			<li><s:a href="validerDossier">valider les dossiers d'articles </s:a></li>
 		</ul>
 <%
 }else if(employe.getDisc().equals("Facturation")){
-
+ResponsableFacturation r = (ResponsableFacturation)employe;
+session.setAttribute("facturation", r);
 
 %>
 

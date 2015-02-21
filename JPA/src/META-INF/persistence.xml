@@ -19,12 +19,12 @@
 
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jee" />
 
-			<property name="javax.persistence.ddl-generation" value="drop-and-create-tables" />
-			<property name="eclipselink.ddl-generation.output-mode" value="database"/>
+		<!--	<property name="javax.persistence.ddl-generation" value="drop-and-create-tables" />
+		  	<property name="eclipselink.ddl-generation.output-mode" value="database"/>
 			<property name="eclipselink.application-location" value="C:\Users\Aethia\Desktop"/>
 			<property name="eclipselink.create-ddl-jdbc-file-name" value="test"/>
 			<property name="javax.persistence.schema-generation.create-database-schemas" value="true"/>
-			<property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
+			<property name="eclipselink.jdbc.batch-writing" value="JDBC"/>-->
 
 		</properties>
 	</persistence-unit>

@@ -6,8 +6,10 @@ import javax.ejb.Remote;
 
 import model.Article;
 import model.Categorie;
+import model.Dossier;
 import model.Employe;
 import model.Journaliste;
+import model.Redacteur;
 
 @Remote
 public interface GestArticleInterface extends Serializable{
@@ -22,5 +24,13 @@ public interface GestArticleInterface extends Serializable{
 	public void addArticleCategorie(Integer idC, Integer idA);
 	public Categorie getCategorieById(Integer id);
 	public List<Categorie> getAllCategories();
+	/*
+	 * Gestion des dossiers
+	 */
+	public List<Dossier> getAllDossiers();
+	public void createDossier(Journaliste j, String label);
+	public void addArticleDossier(Dossier d, Article a);
+	public void removeArticleDossier(Dossier d, Article a);
+	public void validateDossier(Dossier d, Redacteur r);
 	
 }

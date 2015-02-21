@@ -24,17 +24,16 @@ public class Main {
 		InitialContext ctx;
 		try {
 			ctx = new InitialContext(props);
-			GestLecteurInterface bean = (GestLecteurInterface) ctx
-					.lookup("java:global/EARTest/Gestion/GestionLecteurs!lecteur.GestLecteurInterface");
-			bean.acheterArticle(1, 1);
+			//GestLecteurInterface bean = (GestLecteurInterface) ctx.lookup("java:global/EARTest/Gestion/GestionLecteurs!lecteur.GestLecteurInterface");
+			BDDMethods bean = (BDDMethods) ctx.lookup("java:global/EARTest/EJBPersistance/BDDAccessClass!persist.BDDMethods");
+			//bean.creerDossier(bean.getJournalisteById(1),"test");
+			//bean.ajouterArticleDossier(bean.getDossierById(1), bean.getArticleById(1));
+			//bean.validateDossier(bean.getDossierById(1),bean.getRedacteurById(2));
+			//bean.getDossierById(1);
 
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-	
-		
-	/*	TestBD tdb = new TestBD();
-		tdb.test();*/
 	}
 }

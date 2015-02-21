@@ -5,6 +5,7 @@ import javax.ejb.Remote;
 
 import model.Article;
 import model.Categorie;
+import model.Dossier;
 import model.Employe;
 import model.Journaliste;
 import model.Lecteur;
@@ -46,6 +47,15 @@ public interface BDDMethods {
 	public Employe authentificationEmploye(String email, String mdp);
 	public void updateArticle(Article a);
 	public void acheterArticle(int idLecteur, int idArticle);
+	
+	public void creerDossier(Journaliste j, String label);
+	public Dossier getDossierById(int id);
+	public List<Dossier> getAllDossiers();
+	public List<Dossier> getAllValidatedDossiers();
+	public List<Dossier> getAllNonValidatedDossiers();
+	public void ajouterArticleDossier(Dossier d, Article a);
+	public void removeArticleDossier(Dossier d, Article a);
+	public void validateDossier(Dossier d, Redacteur r);
 	
 //	public Boolean estConsultable(int idArticle, int idLecteur);
 }

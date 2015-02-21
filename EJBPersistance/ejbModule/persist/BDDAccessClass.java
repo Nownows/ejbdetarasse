@@ -11,6 +11,7 @@ import javax.persistence.Query;
 import model.Article;
 import model.ArticleAchat;
 import model.Categorie;
+import model.Dossier;
 import model.Employe;
 import model.Journaliste;
 import model.Lecteur;
@@ -29,8 +30,6 @@ public class BDDAccessClass implements BDDMethods{
 	public Article getArticleById(Integer id) {
 		transac.begin();
 		Article article = em.find(Article.class, id);
-
-		//article.getLesCategories().size();
 		transac.commit();
 		return article;
 	}
@@ -258,15 +257,66 @@ public class BDDAccessClass implements BDDMethods{
 		transac.commit();	
 	}
 
-//	@Override
-//	public Boolean estConsultable(int idArticle, int idLecteur) {
-////		Query query = em.createQuery("select a from ArticleLecteur a WHERE a.idArticle =:idA"
-////				+ " AND a.idLecteur =:idL");
-////		 int nb = query.setParameter("idA", idArticle).setParameter("idL", idLecteur).getMaxResults();
-////		 if(nb!=0){
-////			 return true;
-////		 }
-//		 return false;
-//	}
+	@Override
+	public void creerDossier(Journaliste j, String lib) {
+		Dossier d = new Dossier();
+		d.setJournaliste(j);
+		d.setLibelle(lib);
+		transac.begin();
+		em.persist(d);	
+		transac.commit();
+	}
+
+	@Override
+	public void ajouterArticleDossier(Dossier d, Article a) {
+		Dossier dossier = em.find(Dossier.class, d.getId());
+		transac.begin();
+		dossier.addArticle(a);
+		transac.commit();	
+	}
+
+	@Override
+	public Dossier getDossierById(int id) {
+		transac.begin();
+		Dossier dossier = em.find(Dossier.class, id);
+		transac.commit();
+		return dossier;
+	}
+
+	@Override
+	public void removeArticleDossier(Dossier d, Article a) {
+		Dossier dossier = em.find(Dossier.class, d.getId());
+		transac.begin();
+		dossier.removeArticle(a);
+		transac.commit();
+		
+	}
+
+	@Override
+	public void validateDossier(Dossier d, Redacteur r) {
+		Dossier dossier = em.find(Dossier.class, d.getId());
+		transac.begin();
+		dossier.setValidateur(r);
+		transac.commit();
+		
+	}
+
+	@Override
+	public List<Dossier> getAllDossiers() {
+		Query query = em.createQuery("select d from Dossier d");
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Dossier> getAllValidatedDossiers() {
+		Query query = em.createQuery("select d from Dossier d where d.validateur != NULL");
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Dossier> getAllNonValidatedDossiers() {
+		Query query = em.createQuery("select d from Dossier d where d.validateur == NULL");
+		return query.getResultList();
+	}
 
 }

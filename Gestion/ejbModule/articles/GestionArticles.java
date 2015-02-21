@@ -11,8 +11,10 @@ import javax.naming.NamingException;
 import persist.BDDMethods;
 import model.Article;
 import model.Categorie;
+import model.Dossier;
 import model.Employe;
 import model.Journaliste;
+import model.Redacteur;
 
 @Stateless
 public class GestionArticles implements GestArticleInterface {
@@ -105,6 +107,38 @@ public class GestionArticles implements GestArticleInterface {
 	public List<Article> getArticlesNotValidated() {
 		initBean();
 		return bean.getArticlesNotValidated();
+	}
+
+	@Override
+	public List<Dossier> getAllDossiers() {
+		initBean();
+		return null;
+	}
+
+	@Override
+	public void createDossier(Journaliste j, String label) {
+		initBean();
+		bean.creerDossier(j, label);
+		
+	}
+
+	@Override
+	public void addArticleDossier(Dossier d, Article a) {
+		initBean();
+		bean.ajouterArticleDossier(d, a);
+		
+	}
+
+	@Override
+	public void removeArticleDossier(Dossier d, Article a) {
+		initBean();
+		bean.removeArticleDossier(d, a);
+	}
+
+	@Override
+	public void validateDossier(Dossier d, Redacteur r) {
+		initBean();
+		bean.validateDossier(d, r);	
 	}
 
 }
