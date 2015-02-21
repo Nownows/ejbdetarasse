@@ -1,4 +1,5 @@
 package persist;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Remote;
@@ -16,7 +17,7 @@ import model.ResponsableFacturation;
 
 @Remote
 public interface BDDMethods {
-	public void insertLecteur(Lecteur l);
+	public Lecteur insertLecteur(Lecteur l);
 	public void insertRedacteur(Redacteur r);
 	public void insertArticle(Article a);
 	public void insertJournalist(Journaliste j);
@@ -48,6 +49,10 @@ public interface BDDMethods {
 	public void updateArticle(Article a);
 	public void acheterArticle(int idLecteur, int idArticle);
 	
+
+	public Lecteur updateAbonnement(Lecteur l);
+	
+	public Boolean estConsultable(int idArticle, int idLecteur);
 	public void creerDossier(Journaliste j, String label);
 	public Dossier getDossierById(int id);
 	public List<Dossier> getAllDossiers();
@@ -57,5 +62,4 @@ public interface BDDMethods {
 	public void removeArticleDossier(Dossier d, Article a);
 	public void validateDossier(Dossier d, Redacteur r);
 	
-//	public Boolean estConsultable(int idArticle, int idLecteur);
 }

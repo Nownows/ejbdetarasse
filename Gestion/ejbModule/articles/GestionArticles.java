@@ -110,6 +110,12 @@ public class GestionArticles implements GestArticleInterface {
 	}
 
 	@Override
+	public boolean estConsultable(int idArticle, int idLecteur) {
+		initBean();
+		return bean.estConsultable(idArticle, idLecteur);
+	}
+
+	@Override
 	public List<Dossier> getAllDossiers() {
 		initBean();
 		return null;

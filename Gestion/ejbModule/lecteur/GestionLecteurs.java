@@ -35,9 +35,9 @@ public class GestionLecteurs implements GestLecteurInterface {
 	}
 
 	@Override
-	public void insertLecteur(Lecteur l) {
+	public Lecteur insertLecteur(Lecteur l) {
 		initBean();
-		bean.insertLecteur(l);
+		return bean.insertLecteur(l);
 	}
 
 	@Override
@@ -51,6 +51,12 @@ public class GestionLecteurs implements GestLecteurInterface {
 		initBean();
 		bean.acheterArticle(idLecteur, idArticle);
 		
+	}
+
+	@Override
+	public Lecteur updateAbonnement(Lecteur l) {
+		initBean();
+		return bean.updateAbonnement(l);
 	}
 
 }

@@ -1,6 +1,6 @@
 package controle.lecteur;
 
-import java.util.List;
+
 import java.util.Map;
 import java.util.Properties;
 
@@ -10,9 +10,7 @@ import javax.naming.NamingException;
 import org.apache.struts2.interceptor.SessionAware;
 
 import model.Article;
-import model.Journaliste;
 import model.Lecteur;
-import articleLecteur.GestArticleLecteurInterface;
 import articles.GestArticleInterface;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -34,7 +32,6 @@ public class ArticleManager  extends ActionSupport implements SessionAware{
 	}
 
 	private static GestArticleInterface bean = null;
-	private static GestArticleLecteurInterface beanAL = null;
 	
 	private static void init() {
 		if (bean == null) {
@@ -52,21 +49,6 @@ public class ArticleManager  extends ActionSupport implements SessionAware{
 				e.printStackTrace();
 			}
 		}
-		if (beanAL == null) {
-			Properties props = new Properties();
-			props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
-			props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
-			InitialContext ctx;
-			try {
-				ctx = new InitialContext(props);
-				beanAL = (GestArticleLecteurInterface) ctx
-						.lookup("java:global/EARTest/Gestion/GestionArticleLecteur!articleLecteur.GestArticleLecteurInterface");
-
-			} catch (NamingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 	}
 	
 	
@@ -78,14 +60,19 @@ public class ArticleManager  extends ActionSupport implements SessionAware{
 	if(idS!=null){
 		idArticle = Integer.parseInt(idS[0]);
 		Article a = bean.getArticleById(idArticle);
-//		if(beanAL.estConsultable(idArticle, lecteur.getId())){
-//			System.out.println("okconsulte");
-//		}else{
-//			System.out.println("pasok");
-//		}
+		if(bean==null){
+			System.out.println("coucou");
+		}else{
+			System.out.println("hu");
+		}
+		boolean consultation =false;
+		if(lecteur!=null){
+			consultation = bean.estConsultable(idArticle, lecteur.getId());
+			
+				System.out.println(consultation);	
+		}	
+		session.put("consultation", consultation);	
 		session.put("article", a);
-	}else{
-		System.out.println("haha");
 	}
 		return SUCCESS;
 	}
