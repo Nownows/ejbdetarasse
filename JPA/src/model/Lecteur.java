@@ -33,25 +33,25 @@ public class Lecteur implements Serializable {
 	private String pays;
 	@Column(name="status")
 	private int status;
-	@Column(name="dateDebut")@Temporal(TemporalType.DATE)
-	private Date dateDebut;
-	@Column(name="dateFin")@Temporal(TemporalType.DATE)
-	private Date dateFin;
+	@Column(name="dateDebut")
+	private int dateDebut;
+	@Column(name="dateFin")
+	private int dateFin;
 	
 
-	public Date getDateDebut() {
+	public int getDateDebut() {
 		return dateDebut;
 	}
 
-	public void setDateDebut(Date dateDebut) {
+	public void setDateDebut(int dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public Date getDateFin() {
+	public int getDateFin() {
 		return dateFin;
 	}
 
-	public void setDateFin(Date dateFin) {
+	public void setDateFin(int dateFin) {
 		this.dateFin = dateFin;
 	}
 

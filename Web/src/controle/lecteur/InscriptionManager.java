@@ -80,8 +80,8 @@ public class InscriptionManager  extends ActionSupport implements SessionAware{
 		l.setPassword(password);
 		l.setPays(pays);
 		l.setStatus(0);
-		l.setDateDebut(null);
-		l.setDateFin(null);
+		l.setDateDebut(0);
+		l.setDateFin(0);
 		if(EJBContext.getEJBLecteur()!=null){
 			Lecteur lInscrit = EJBContext.getEJBLecteur().insertLecteur(l);
 			session.put("lecteur", lInscrit);

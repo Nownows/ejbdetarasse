@@ -59,18 +59,14 @@ public class ArticleManager extends ActionSupport implements SessionAware {
 		Lecteur lecteur = (Lecteur) ActionContext.getContext().getSession().get("lecteur");
 		if (idS != null) {
 			idArticle = Integer.parseInt(idS[0]);
-			Article a = bean.getArticleById(idArticle);
-			int idDossier = Integer.parseInt(idD[0]);
-			Dossier d = bean.getDossierById(idDossier);
+			Article a = bean.getArticleById(idArticle);		
 			session.put("article", a);
-			session.put("dossier", d);
-			session.put("inDossier", bean.articleIsPresent(d, a));
-			consultation = bean.estConsultable(idArticle, lecteur.getId());
-			
-				System.out.println(consultation);	
+			boolean consultation = bean.estConsultable(idArticle, lecteur.getId());	
+			session.put("consultation", consultation);	
 		}	
-		session.put("consultation", consultation);	
-		session.put("article", a);		return SUCCESS;
+		
+			
+		return SUCCESS;
 	}
 
 	@Override

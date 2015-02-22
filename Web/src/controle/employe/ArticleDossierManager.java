@@ -13,7 +13,7 @@ import model.Article;
 import model.Dossier;
 import model.Journaliste;
 import model.Lecteur;
-import articleLecteur.GestArticleLecteurInterface;
+
 import articles.GestArticleInterface;
 
 import com.opensymphony.xwork2.ActionContext;

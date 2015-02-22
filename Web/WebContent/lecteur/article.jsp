@@ -15,7 +15,7 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-<jsp:include page="../categories.jsp" />
+	<jsp:include page="../categories.jsp" />
 
 
 	<div style="width: 900px; margin: auto; background-color: #F8F8F8">
@@ -34,11 +34,14 @@
  %> Vous devez vous connecter pour voir la suite de l'article. <%
  	} else {
  		Lecteur lecteur = (Lecteur) session.getAttribute("lecteur");
- 		Boolean consultable = (Boolean) session.getAttribute("consultation");
- 		if (consultable.booleanValue() ==true) {
- 			consultable = (Boolean) session.getAttribute("consultation");
+ 		Boolean consultable = (Boolean) session
+ 				.getAttribute("consultation");
+ 		if (consultable.booleanValue() == true) {
+ 			consultable = (Boolean) session
+ 					.getAttribute("consultation");
  		}
- 		if (lecteur.getStatus() == Parametres.LECTEUR_ABONNE || consultable == true) {//il lit l'article si abonné
+ 		if (lecteur.getStatus() == Parametres.LECTEUR_ABONNE
+ 				|| consultable == true) {//il lit l'article si abonné
  %>
 
 
@@ -55,10 +58,10 @@
 					<p>
 						<a class="btn btn-primary btn-lg" href="acheterArticle"
 							role="button">Acheter cet article</a>
-					</p> <% } 
-					
-					
-			}
+					</p> <%
+ 	}
+
+ 	}
  %> <br> <br>
 					<hr>
 

@@ -64,6 +64,7 @@ public class ValiderIdentification extends ActionSupport implements SessionAware
 			}
 			else {
 				session.put("lecteur", ret);
+				System.out.println("on met le lecteur en session");
 				return SUCCESS;
 			}
 		} catch (Exception e) {
