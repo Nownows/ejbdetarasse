@@ -24,6 +24,8 @@ public interface GestArticleInterface extends Serializable{
 	public void addArticleCategorie(Integer idC, Integer idA);
 	public Categorie getCategorieById(Integer id);
 	public List<Categorie> getAllCategories();
+	public boolean estConsultable(int idArticle, int idLecteur);
+
 	/*
 	 * Gestion des dossiers
 	 */

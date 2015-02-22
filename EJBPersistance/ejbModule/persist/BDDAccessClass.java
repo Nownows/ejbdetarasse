@@ -1,5 +1,7 @@
 package persist;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateful;
@@ -94,11 +96,12 @@ public class BDDAccessClass implements BDDMethods{
 	}
 
 	@Override
-	public void insertLecteur(Lecteur l) {
+	public Lecteur insertLecteur(Lecteur l) {
 		transac.begin();
 		em.persist(l);
+		em.flush();
 		transac.commit();	
-		
+		return l;
 	}
 
 	@Override
@@ -257,6 +260,39 @@ public class BDDAccessClass implements BDDMethods{
 		transac.begin();
 		em.persist(aa);	
 		transac.commit();	
+	}
+
+
+	@Override
+	public Boolean estConsultable(int idArticle, int idLecteur) {
+		Query query = em.createQuery("select a from ArticleAchat a WHERE a.a.idArticle =:idA"
+				+ " AND a.l.id =:idL");
+		int nb=0;
+		 nb = query.setParameter("idA", idArticle).setParameter("idL", idLecteur).getResultList().size();
+		 System.out.println("nb +" + nb);
+		 if(nb!=0){
+			 return true;
+		 }
+		 return false;
+	}
+
+	@Override
+	public Lecteur updateAbonnement(Lecteur l) {
+		transac.begin();
+		Calendar cal = Calendar.getInstance();
+		Date today = cal.getTime();
+		cal.add(Calendar.YEAR, 1); // to get previous year add -1
+		Date nextYear = cal.getTime();
+		l.setStatus(1);
+		Query query = em
+				.createQuery("update Lecteur l set l.dateDebut =:dd, l.dateFin =:df, l.status =1 where l.id =:id");
+		query.setParameter("dd", new Date()).setParameter("id", l.getId()).setParameter("df", nextYear);
+		query.executeUpdate();
+		em.flush();
+		transac.commit();
+		
+		return l;
+		
 	}
 
 	@Override

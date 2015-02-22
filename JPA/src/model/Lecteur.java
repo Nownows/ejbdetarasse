@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @Entity
@@ -30,25 +33,25 @@ public class Lecteur implements Serializable {
 	private String pays;
 	@Column(name="status")
 	private int status;
-	@Column(name="dateDebut")
-	private int dateDebut;
-	@Column(name="dateFin")
-	private int dateFin;
+	@Column(name="dateDebut")@Temporal(TemporalType.DATE)
+	private Date dateDebut;
+	@Column(name="dateFin")@Temporal(TemporalType.DATE)
+	private Date dateFin;
 	
 
-	public int getDateDebut() {
+	public Date getDateDebut() {
 		return dateDebut;
 	}
 
-	public void setDateDebut(int dateDebut) {
+	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public int getDateFin() {
+	public Date getDateFin() {
 		return dateFin;
 	}
 
-	public void setDateFin(int dateFin) {
+	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
 

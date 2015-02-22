@@ -26,7 +26,7 @@ public class Article implements Serializable{
 	private String titre;
 	@Column(name="header")
 	private String header;
-	@Column(name="corps")
+	@Column(name="corps",length=4000)
 	private String corps;
 	@Column(name="prix")
 	private Float prix;

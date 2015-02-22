@@ -17,7 +17,13 @@
 			<result name="input">/index.jsp</result>
 			<result name="success">/index.jsp</result>
 		</action>
-		
+		<action name="ValiderInscription" class="controle.lecteur.InscriptionManager">
+			<result name="input">/index.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="deconnexion" class="controle.lecteur.DeconnexionManager">
+			<result name="success">/index.jsp</result>
+		</action>
 <!-- 		<action name="ValiderIdentificationJournaliste" class="controle.ValiderIdentificationJournaliste"> -->
 <!-- 			<result name="input">/admin.jsp</result> -->
 <!-- 			<result name="success">/homeJournaliste.jsp</result> -->
@@ -40,6 +46,10 @@
 
 		<action name="gotopage2">
 			<result type="redirect">/admin.jsp</result>
+		</action>
+		
+		<action name="acheterArticle">
+			<result type="redirect">/lecteur/achatArticle.jsp</result>
 		</action>
 		
 <!-- 		Employés                     -->
@@ -78,11 +88,25 @@
 			<result name="success">/administration/homeAdministration.jsp</result>
 		</action>
 		
-		<action name="AjouterDossier" class="controle.employe.AjoutDossier">
+		<!--  Lecteurs -->
+		<action name="ValiderAchat" class="controle.lecteur.AchatArticle">
+			<result name="input">/lecteur/article.jsp</result>
+			<result name="success">/lecteur/article.jsp</result>
+		</action>
+		<action name="ValiderAbonnement" class="controle.lecteur.SouscriptionAbonnement">
+			<result name="input">/lecteur/formAbonnement.jsp</result>
+			<result name="success">/lecteur/abonnementValide.jsp</result>
+		</action>
+		<action name="gotoInscription">
+			<result type="redirect">/lecteur/formInscription.jsp</result>
+		</action>
+		<action name="gotoAbonnement">
+			<result type="redirect">/lecteur/formAbonnement.jsp</result>
+		</action>
+<action name="AjouterDossier" class="controle.employe.AjoutDossier">
 			<result name="input">/administration/gestionDossier.jsp</result>
 			<result name="success">/administration/homeAdministration.jsp</result>
 		</action>
-		
 <!-- 		Tous -->
 		
 		<action name="article" class="controle.lecteur.ArticleManager">
