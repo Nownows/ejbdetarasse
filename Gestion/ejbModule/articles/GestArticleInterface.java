@@ -32,5 +32,10 @@ public interface GestArticleInterface extends Serializable{
 	public void addArticleDossier(Dossier d, Article a);
 	public void removeArticleDossier(Dossier d, Article a);
 	public void validateDossier(Dossier d, Redacteur r);
+	public List<Dossier> getAllDossiersFromJournalist(Journaliste j);
+	public boolean articleIsPresent(Dossier d, Article a);
+	public Dossier getDossierById(int idDossier);
+	public List<Article> getArticlesNotInDossier(Dossier d);
+	public List<Dossier> getAllNonValidatedDossiers();
 	
 }

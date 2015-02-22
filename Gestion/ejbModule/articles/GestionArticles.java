@@ -141,4 +141,34 @@ public class GestionArticles implements GestArticleInterface {
 		bean.validateDossier(d, r);	
 	}
 
+	@Override
+	public List<Dossier> getAllDossiersFromJournalist(Journaliste j) {
+		initBean();
+		return bean.getAllDossiersFromJournalist(j);
+	}
+
+	@Override
+	public boolean articleIsPresent(Dossier d, Article a) {
+		initBean();
+		return bean.isArticleInDossier(d, a);
+	}
+
+	@Override
+	public Dossier getDossierById(int idDossier) {
+		initBean();
+		return bean.getDossierById(idDossier);
+	}
+
+	@Override
+	public List<Article> getArticlesNotInDossier(Dossier d) {
+		initBean();
+		return bean.getArticlesNotInDossier(d);
+	}
+
+	@Override
+	public List<Dossier> getAllNonValidatedDossiers() {
+		initBean();
+		return bean.getAllNonValidatedDossiers();
+	}
+
 }

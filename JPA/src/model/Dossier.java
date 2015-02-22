@@ -78,4 +78,12 @@ public class Dossier implements Serializable {
 			}
 		}
 	}
+	public boolean isPresentArticle(Article a){
+		for (int i=0;i<lesArticles.size();i++){
+			if (lesArticles.get(i).getIdArticle() == a.getIdArticle()){
+				return true;
+			}
+		}
+		return false;
+	}
 }

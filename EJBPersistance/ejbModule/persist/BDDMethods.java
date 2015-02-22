@@ -50,12 +50,15 @@ public interface BDDMethods {
 	
 	public void creerDossier(Journaliste j, String label);
 	public Dossier getDossierById(int id);
+	public List<Dossier> getAllDossiersFromJournalist(Journaliste j);
 	public List<Dossier> getAllDossiers();
 	public List<Dossier> getAllValidatedDossiers();
 	public List<Dossier> getAllNonValidatedDossiers();
 	public void ajouterArticleDossier(Dossier d, Article a);
 	public void removeArticleDossier(Dossier d, Article a);
 	public void validateDossier(Dossier d, Redacteur r);
+	public boolean isArticleInDossier(Dossier d, Article a);
+	public List<Article> getArticlesNotInDossier(Dossier d);
 	
 //	public Boolean estConsultable(int idArticle, int idLecteur);
 }

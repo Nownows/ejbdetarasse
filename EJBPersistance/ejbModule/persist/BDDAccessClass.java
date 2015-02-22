@@ -1,7 +1,9 @@
 package persist;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -19,7 +21,7 @@ import model.Note;
 import model.Redacteur;
 import model.ResponsableFacturation;
 
-@Stateful
+@Stateless
 public class BDDAccessClass implements BDDMethods{
 	
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPA");
@@ -272,6 +274,7 @@ public class BDDAccessClass implements BDDMethods{
 		Dossier dossier = em.find(Dossier.class, d.getId());
 		transac.begin();
 		dossier.addArticle(a);
+		dossier.setValidateur(null);
 		transac.commit();	
 	}
 
@@ -288,6 +291,7 @@ public class BDDAccessClass implements BDDMethods{
 		Dossier dossier = em.find(Dossier.class, d.getId());
 		transac.begin();
 		dossier.removeArticle(a);
+		dossier.setValidateur(null);
 		transac.commit();
 		
 	}
@@ -315,8 +319,38 @@ public class BDDAccessClass implements BDDMethods{
 
 	@Override
 	public List<Dossier> getAllNonValidatedDossiers() {
-		Query query = em.createQuery("select d from Dossier d where d.validateur == NULL");
+		Query query = em.createQuery("select d from Dossier d where d.validateur = NULL");
 		return query.getResultList();
+	}
+
+	@Override
+	public List<Dossier> getAllDossiersFromJournalist(Journaliste j) {
+		Query query = em.createQuery("select d from Dossier d where d.journaliste.id = "+j.getId());
+		return query.getResultList();
+	}
+
+	@Override
+	public boolean isArticleInDossier(Dossier d, Article a) {
+		Dossier dossier = em.find(Dossier.class, d.getId());
+		em.refresh(dossier);
+		return dossier.isPresentArticle(a);
+	}
+
+	@Override
+	public List<Article> getArticlesNotInDossier(Dossier d) {
+		List<Article> allArticles = getAllArticles();	
+		Dossier dossier = em.find(Dossier.class, d.getId());
+		em.refresh(dossier);
+		List<Article> dossierArticle = dossier.getLesArticles();	
+		List<Article> retour = new ArrayList<Article>();
+		
+		for (Article article : allArticles) {
+			if (!dossierArticle.contains(article)){
+				retour.add(article);
+			}
+		}
+
+		return retour;
 	}
 
 }

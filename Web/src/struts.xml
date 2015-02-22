@@ -53,20 +53,33 @@
 			<result name="success">/administration/voirArticles.jsp</result>
 		</action>
 		
+		
+		<action name="listArticlesDossier" class="controle.employe.ArticleDossierManager">
+			<result name="input">/administration/listArticlesDossier.jsp</result>
+			<result name="success">/administration/listArticlesDossier.jsp</result>
+		</action>
+		
 		<action name="nouvelArticle">
 			<result type="redirect">/administration/addArticle.jsp</result>
 		</action>
 		
-		<action name="gestionDossier">
-			<result type="redirect">/administration/gestionDossier.jsp</result>
+		<action name="gestionDossier" class="controle.employe.DossiersManager">
+			<result name="input">/administration/gestionDossier.jsp</result>
+			<result name="success">/administration/gestionDossier.jsp</result>
 		</action>
 		
-		<action name="validerDossier">
-			<result type="redirect">/administration/validerDossier.jsp</result>
+		<action name="validerDossier" class="controle.employe.ValidatorDossiersManager">
+			<result name="input">/administration/validerDossier.jsp</result>
+			<result name="success">/administration/validerDossier.jsp</result>
 		</action>
 		
 	<action name="AjouterArticle" class="controle.employe.AjoutArticle">
 			<result name="input">/administration/addArticle.jsp</result>
+			<result name="success">/administration/homeAdministration.jsp</result>
+		</action>
+		
+		<action name="AjouterDossier" class="controle.employe.AjoutDossier">
+			<result name="input">/administration/gestionDossier.jsp</result>
 			<result name="success">/administration/homeAdministration.jsp</result>
 		</action>
 		
@@ -75,6 +88,11 @@
 		<action name="article" class="controle.lecteur.ArticleManager">
 			<result name="input">/lecteur/article.jsp</result>
 			<result name="success">/lecteur/article.jsp</result>
+		</action>
+		
+		<action name="articleAdmin" class="controle.lecteur.ArticleManager">
+			<result name="input">/administration/article.jsp</result>
+			<result name="success">/administration/article.jsp</result>
 		</action>
 		
 		<action name="categorie" class="controle.lecteur.CategorieManager">

@@ -30,6 +30,7 @@ public class Main {
 			//bean.ajouterArticleDossier(bean.getDossierById(1), bean.getArticleById(1));
 			//bean.validateDossier(bean.getDossierById(1),bean.getRedacteurById(2));
 			//bean.getDossierById(1);
+			System.out.println(bean.getArticlesNotInDossier(bean.getDossierById(1)));
 
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

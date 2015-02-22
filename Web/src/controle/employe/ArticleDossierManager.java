@@ -1,4 +1,4 @@
-package controle.lecteur;
+package controle.employe;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +19,7 @@ import articles.GestArticleInterface;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ArticleManager extends ActionSupport implements SessionAware {
+public class ArticleDossierManager extends ActionSupport implements SessionAware {
 	private int idArticle;
 	Map<String, Object> session;
 
@@ -32,7 +32,6 @@ public class ArticleManager extends ActionSupport implements SessionAware {
 	}
 
 	private static GestArticleInterface bean = null;
-	private static GestArticleLecteurInterface beanAL = null;
 
 	private static void init() {
 		if (bean == null) {
@@ -50,41 +49,18 @@ public class ArticleManager extends ActionSupport implements SessionAware {
 				e.printStackTrace();
 			}
 		}
-		if (beanAL == null) {
-			Properties props = new Properties();
-			props.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
-			props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
-			InitialContext ctx;
-			try {
-				ctx = new InitialContext(props);
-				beanAL = (GestArticleLecteurInterface) ctx
-						.lookup("java:global/EARTest/Gestion/GestionArticleLecteur!articleLecteur.GestArticleLecteurInterface");
-
-			} catch (NamingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 	}
 
 	@Override
 	public String execute() throws Exception {
 		init();
-		String[] idS = (String[]) ActionContext.getContext().getParameters().get("idArticle");
 		String[] idD = (String[]) ActionContext.getContext().getParameters().get("idDossier");
-		
-		Lecteur lecteur = (Lecteur) ActionContext.getContext().getSession().get("lecteur");
-		if (idS != null) {
-			idArticle = Integer.parseInt(idS[0]);
-			Article a = bean.getArticleById(idArticle);
+		if (idD != null) {
 			int idDossier = Integer.parseInt(idD[0]);
-			Dossier d = bean.getDossierById(idDossier);
-			session.put("article", a);
-			session.put("dossier", d);
-			session.put("inDossier", bean.articleIsPresent(d, a));
-		} else {
-			System.out.println("haha");
-		}
+			List<Article> la = bean.getArticlesNotInDossier(bean.getDossierById(idDossier));
+			session.put("listeArticles", la);
+
+		} 
 		return SUCCESS;
 	}
 
