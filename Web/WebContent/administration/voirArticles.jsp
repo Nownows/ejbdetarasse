@@ -14,7 +14,7 @@
 	<table style="width: 100%">
 		<tr>
 			
-			<td width="85%;"><c:forEach var="entry"
+			<td width="85%;" style="padding:10px;"><c:forEach var="entry"
 					items="<%=session.getAttribute("mesArticles")%>">
 
 					<h2>${entry.getTitre()}</h2>

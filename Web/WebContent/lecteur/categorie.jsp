@@ -2,7 +2,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.Lecteur"%>
-<%@ page import="model.Categorie"%>
+<%@ page import="java.util.*"%>
+<%@ page import="model.*"%>
 <html>
 <head>
 <link href="style.css" type="text/css" media="screen" rel="stylesheet">
@@ -11,38 +12,46 @@
 <title>Plateforme de gestion des articles</title>
 </head>
 <body>
-<jsp:include page="../header.jsp" />
-<jsp:include page="../categories.jsp" />
+	<jsp:include page="../header.jsp" />
+	<jsp:include page="../categories.jsp" />
 
-	<div style="width:  900px;margin: auto;background-color: #F8F8F8">
-	<table style="width: 100%">
-		<tr>
-			<td width="10%;"></td>
-			<td width="90%;"><c:forEach var="entry"
-					items="<%=session.getAttribute("articles")%>">
-					<s:url action="article" var="urlArticle">
-						<s:param name="idArticle">${entry.getIdArticle()}</s:param>
-					</s:url>
-					<h2>
-						<a href="<s:property value="#urlArticle" />">${entry.getTitre()}</a>
-					</h2>
-					<h3>${entry.getHeader()}</h3>
-
+	<div style="width: 900px; margin: auto; background-color: #F8F8F8">
+		<table style="width: 100%">
+			<tr>
+				<td width="10%;"></td>
+				<td width="90%;" style="padding:10px;">
 					<%
-						if (session.getAttribute("lecteur") == ""
-									|| session.getAttribute("lecteur") == null) {
-					%>
+						List<Article> la= (List<Article>)session.getAttribute("articles");
+						if (la == null || la.size() == 0) {
+					%> Aucun article dans cette catégorie. <%
+						}
+					%> <c:forEach var="entry"
+						items="<%=session.getAttribute("articles")%>">
+						<s:url action="article" var="urlArticle">
+							<s:param name="idArticle">${entry.getIdArticle()}</s:param>
+						</s:url>
+						<h2>
+							<a href="<s:property value="#urlArticle" />">${entry.getTitre()}</a>
+						</h2>
+						<h3>${entry.getHeader()}</h3>
+
+						<%
+							if (session.getAttribute("lecteur") == ""
+										|| session.getAttribute("lecteur") == null) {
+						%>
 								Vous devez vous connecter pour voir la suite de l'article.
 						<%
-						} %>
-					<br>
-					<br>
+							}
+						%>
+						<br>
+						<br>
 
-					<hr>
-				</c:forEach></td>
-		</tr>
-	</table>
-</div>
+						<hr>
+					</c:forEach>
+				</td>
+			</tr>
+		</table>
+	</div>
 
 </body>
 </html>

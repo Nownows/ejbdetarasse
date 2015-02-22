@@ -14,7 +14,7 @@
 		<tr>
 		
 			
-			<td width="85%;"><s:form method="post" action="AjouterArticle" >
+			<td width="85%;" style="padding:10px;"><s:form method="post" action="AjouterArticle" >
 					<s:textfield name="titre" id="titre" label="Titre"
 						labelposition="top" cssClass="input" />
 					<s:textfield name="header" id="header" label="Header"
@@ -23,6 +23,23 @@
 						cssClass="input" />
 					<s:textarea name="corps" id="corps" label="Corps"
 						labelposition="top" cssClass="input" />
+					<label for="titre" class="label">Catégories:</label><br/><br/><br/>
+						<select multiple="multiple">
+							<option selected value=""/>
+							<option value="Monde">Monde</option>
+							<option value="Politique">Politique</option>
+							<option value="Economie">Economie</option>
+							<option value="Musique">Musique</option>
+							<option value="Populaire">Populaire</option>
+							<option value="Sport">Sport</option>
+							<option value="Sciences">Sciences</option>
+							<option value="Société">Société</option>
+							<option value="Culture">Culture</option>
+							<option value="Divers">Divers</option>
+						</select>
+						<br/>
+						<br/>
+						<br/>
 					<s:submit value="Ajouter l'article" />
 				</s:form></td>
 		</tr>

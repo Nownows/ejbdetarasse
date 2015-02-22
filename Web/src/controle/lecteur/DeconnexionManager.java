@@ -13,6 +13,8 @@ public class DeconnexionManager extends ActionSupport implements SessionAware{
 	@Override
 	public String execute() throws Exception {
 		session.remove("lecteur");
+		session.remove("redacteur");
+		session.remove("journaliste");
 		
 		return SUCCESS;
 	}

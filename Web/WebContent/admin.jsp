@@ -18,7 +18,7 @@
 		<tr>
 			
 	<h1>Connexion des Employes</h1>
-	<td ><s:form method="post" action="ValiderIdentificationEmploye">
+	<td style="padding:10px;"><s:form method="post" action="ValiderIdentificationEmploye">
 	
 		<s:textfield name="identifiant" id="identifiant" label="Identifiant"
 						labelposition="top" cssClass="input" />
