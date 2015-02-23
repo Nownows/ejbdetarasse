@@ -58,6 +58,7 @@ public class ArticlesManager  extends ActionSupport implements SessionAware{
 			Dossier d = bean.getDossierById(idDossier);
 			session.put("article", a);
 			session.put("dossier", d);
+			session.put("mesArticles", bean.getArticles());
 		}	
 		
 			
